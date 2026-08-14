@@ -1,8 +1,13 @@
 /* =========================================================
-   PIECES OF RANIA — STYLE
-   ========================================================= */
+   PIECES OF RANIA ♡
+   FULL STYLE.CSS
+   pastel • cute • interactive • mobile friendly
+========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -15,18 +20,116 @@ html {
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(255,255,255,.9), transparent 25%),
-    linear-gradient(135deg, #fff1f7, #f8efff 48%, #eef7ff);
-  color: #5d5260;
   min-height: 100vh;
   overflow-x: hidden;
+
+  font-family:
+    "Trebuchet MS",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #625466;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(255, 213, 232, 0.75),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 25%,
+      rgba(226, 211, 255, 0.65),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(255, 232, 244, 0.9),
+      transparent 30%
+    ),
+    #fffaff;
+
+  line-height: 1.6;
+}
+
+button,
+audio {
+  font: inherit;
 }
 
 button {
-  font-family: inherit;
+  border: 0;
+  cursor: pointer;
 }
+
+button:focus-visible {
+  outline: 3px solid rgba(202, 143, 184, 0.5);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: #f3c8dd;
+  color: #59475a;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+  content: "♡   ✦   ♡   ✿   ♡   ✦";
+  position: absolute;
+
+  left: 0;
+  top: -40px;
+
+  width: 100%;
+
+  text-align: center;
+  letter-spacing: 35px;
+
+  font-size: 18px;
+
+  color: rgba(196, 150, 186, 0.25);
+
+  animation: floatingDecor 15s linear infinite;
+}
+
+.floating-hearts::after {
+  animation-delay: -7s;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+@keyframes floatingDecor {
+  from {
+    transform: translateY(-50px);
+  }
+
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 main {
   position: relative;
@@ -35,192 +138,61 @@ main {
 
 section {
   position: relative;
-  min-height: 100vh;
-  padding: 90px 7vw;
+  width: 100%;
 }
 
-/* =========================================================
-   FALLING FLOWERS
-   ========================================================= */
-
-#fallingFlowers {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 20;
-}
-
-.falling-flower {
-  position: absolute;
-  top: -50px;
-  font-size: 20px;
-  opacity: .75;
-  animation: flowerFall linear forwards;
-  pointer-events: none;
-}
-
-@keyframes flowerFall {
-  0% {
-    transform: translateY(-60px) rotate(0deg);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: .8;
-  }
-
-  50% {
-    transform: translateY(50vh) translateX(35px) rotate(180deg);
-  }
-
-  100% {
-    transform: translateY(110vh) translateX(-45px) rotate(360deg);
-    opacity: 0;
-  }
-}
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero {
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding: 70px 20px 55px;
+
   text-align: center;
+
   overflow: hidden;
-  padding-top: 80px;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 215, 232, 0.75),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      rgba(222, 211, 255, 0.65),
+      transparent 32%
+    );
 }
 
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(5px);
-  pointer-events: none;
-}
 
-.hero::before {
-  width: 280px;
-  height: 280px;
-  background: rgba(255, 190, 218, .25);
-  top: 5%;
-  left: -100px;
-}
+/* =========================================================
+   HERO DECORATION
+========================================================= */
 
-.hero::after {
-  width: 300px;
-  height: 300px;
-  background: rgba(210, 190, 255, .25);
-  bottom: -100px;
-  right: -100px;
-}
-
-.hero-decoration {
-  display: flex;
-  gap: 18px;
+.sparkles {
   margin-bottom: 25px;
-  color: #c59ab3;
-  font-size: 22px;
-  animation: decorationFloat 4s ease-in-out infinite;
+
+  color: #b58ba9;
+
+  font-size: clamp(18px, 4vw, 27px);
+
+  letter-spacing: 8px;
+
+  animation: sparkleFloat 3s ease-in-out infinite;
 }
 
-.hero-decoration span:nth-child(2) {
-  color: #a990a8;
-}
-
-.hero-decoration span:nth-child(4) {
-  font-size: 28px;
-}
-
-@keyframes decorationFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.eyebrow {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  color: #a47c99;
-  margin-bottom: 12px;
-}
-
-.main-title {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(48px, 11vw, 90px);
-  font-weight: 400;
-  line-height: 1;
-  color: #574b59;
-  animation: titleAppear 1s ease both;
-}
-
-.main-title span {
-  color: #c985aa;
-  font-style: italic;
-}
-
-@keyframes titleAppear {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-subtitle {
-  margin-top: 18px;
-  font-size: 15px;
-  color: #8d7c8d;
-}
-
-.character-area {
-  position: relative;
-  width: 220px;
-  height: 280px;
-  margin: 25px auto 10px;
-}
-
-.speech-bubble {
-  position: absolute;
-  top: 5px;
-  right: -45px;
-  background: white;
-  padding: 12px 17px;
-  border-radius: 20px 20px 4px 20px;
-  box-shadow: 0 8px 25px rgba(100,70,100,.12);
-  color: #806779;
-  font-size: 12px;
-  z-index: 5;
-  animation: bubbleFloat 3s ease-in-out infinite;
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  bottom: -7px;
-  width: 13px;
-  height: 13px;
-  background: white;
-  transform: rotate(45deg);
-}
-
-@keyframes bubbleFloat {
-  0%, 100% {
+@keyframes sparkleFloat {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -229,118 +201,1827 @@ section {
   }
 }
 
-/* =========================================================
-   CUTE CHARACTER
-   ========================================================= */
 
-.character {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 120px;
-  height: 225px;
-  transform: translateX(-50%);
-  animation: characterBounce 3s ease-in-out infinite;
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+  margin-bottom: 15px;
+
+  color: #a47c99;
+
+  font-size: clamp(11px, 2.5vw, 15px);
+
+  letter-spacing: 6px;
+
+  font-weight: 600;
+
+  animation: fadeDown 1s ease both;
 }
 
-@keyframes characterBounce {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CLICKABLE TITLE
+========================================================= */
+
+.title-button {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10px 25px;
+
+  background: transparent;
+
+  color: #554857;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.title-button:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 10px 20px rgba(177, 129, 166, 0.15));
+}
+
+.title-button:active {
+  transform: scale(0.97);
+}
+
+.title-button span {
+  font-family: Georgia, serif;
+
+  font-size: clamp(42px, 11vw, 95px);
+
+  line-height: 0.9;
+
+  font-weight: 600;
+}
+
+.title-button strong {
+  margin-top: 5px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(52px, 14vw, 120px);
+
+  line-height: 0.95;
+
+  color: #c783aa;
+
+  font-style: italic;
+
+  text-shadow:
+    3px 3px 0 rgba(255, 255, 255, 0.8);
+}
+
+.title-button::after {
+  content: "tap me ♡";
+
+  position: absolute;
+
+  right: -55px;
+  bottom: 5px;
+
+  font-size: 11px;
+
+  color: #b18ba9;
+
+  opacity: 0;
+
+  transform: translateY(5px);
+
+  transition: 0.3s ease;
+}
+
+.title-button:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+========================================================= */
+
+.hero-subtitle {
+  max-width: 570px;
+
+  margin: 25px auto 30px;
+
+  color: #837383;
+
+  font-size: clamp(15px, 3.5vw, 20px);
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   CHARACTER AREA
+========================================================= */
+
+.character-wrap {
+  position: relative;
+
+  width: 240px;
+  height: 285px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   CHARACTER BUTTON
+========================================================= */
+
+.character-button {
+  position: relative;
+
+  width: 180px;
+  height: 240px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: transparent;
+
+  z-index: 3;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.character-button:hover {
+  transform: translateY(-8px) scale(1.04);
+  filter: drop-shadow(0 15px 20px rgba(178, 126, 166, 0.18));
+}
+
+.character-button:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================================================
+   CHARACTER
+========================================================= */
+
+.character {
+  position: relative;
+
+  width: 145px;
+  height: 225px;
+
+  animation: characterFloat 4s ease-in-out infinite;
+}
+
+@keyframes characterFloat {
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateX(-50%) translateY(-8px);
+    transform: translateY(-8px);
   }
 }
 
-.character-hair {
+
+/* =========================================================
+   HAIR
+========================================================= */
+
+.hair {
   position: absolute;
-  width: 100px;
-  height: 105px;
-  background: #745c68;
-  border-radius: 50% 50% 45% 45%;
-  top: 5px;
-  left: 10px;
+
+  top: 10px;
+  left: 22px;
+
+  width: 102px;
+  height: 112px;
+
+  background: #604b5d;
+
+  border-radius: 52% 52% 45% 45%;
+
   z-index: 1;
 }
 
-.character-head {
+.hair::after {
+  content: "";
+
   position: absolute;
-  width: 88px;
-  height: 88px;
-  background: #ffe0d0;
-  border-radius: 47% 47% 45% 45%;
-  top: 22px;
-  left: 16px;
-  z-index: 2;
-  box-shadow: inset 0 -4px rgba(230,160,160,.12);
+
+  bottom: -7px;
+  left: -5px;
+
+  width: 113px;
+  height: 55px;
+
+  background: #604b5d;
+
+  border-radius: 50%;
 }
+
+
+/* =========================================================
+   HEAD
+========================================================= */
+
+.head {
+  position: absolute;
+
+  top: 31px;
+  left: 30px;
+
+  width: 88px;
+  height: 100px;
+
+  background: #ffddca;
+
+  border-radius: 48% 48% 45% 45%;
+
+  z-index: 2;
+
+  box-shadow:
+    inset 0 -4px rgba(210, 148, 143, 0.08);
+}
+
+
+/* =========================================================
+   EYES
+========================================================= */
 
 .eye {
   position: absolute;
-  width: 8px;
-  height: 11px;
-  background: #544751;
+
+  top: 43px;
+
+  width: 10px;
+  height: 14px;
+
+  background: #574956;
+
   border-radius: 50%;
-  top: 38px;
 }
 
-.eye.left {
-  left: 25px;
+.eye-left {
+  left: 24px;
 }
 
-.eye.right {
-  right: 25px;
+.eye-right {
+  right: 24px;
 }
+
+
+/* =========================================================
+   BLUSH
+========================================================= */
 
 .blush {
   position: absolute;
-  width: 18px;
-  height: 8px;
-  background: #f4a9bb;
+
+  top: 61px;
+
+  width: 21px;
+  height: 9px;
+
+  background: #f4a9b9;
+
   border-radius: 50%;
-  opacity: .55;
-  top: 53px;
+
+  opacity: 0.55;
 }
 
-.left-blush {
-  left: 10px;
+.blush-left {
+  left: 9px;
 }
 
-.right-blush {
-  right: 10px;
+.blush-right {
+  right: 9px;
 }
+
+
+/* =========================================================
+   MOUTH
+========================================================= */
 
 .mouth {
   position: absolute;
+
   left: 50%;
-  top: 54px;
+  top: 67px;
+
   transform: translateX(-50%);
-  color: #8f5668;
-  font-size: 17px;
+
+  color: #85586c;
+
+  font-size: 20px;
 }
 
-.character-body {
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.body {
   position: absolute;
-  width: 110px;
-  height: 125px;
-  left: 5px;
-  top: 98px;
+
+  bottom: 0;
+  left: 12px;
+
+  width: 122px;
+  height: 110px;
 }
+
+
+/* =========================================================
+   DRESS
+========================================================= */
 
 .dress {
   position: absolute;
-  width: 100px;
+
+  left: 16px;
+  bottom: 0;
+
+  width: 90px;
   height: 105px;
-  left: 5px;
-  top: 5px;
-  background: linear-gradient(145deg, #eab8d2, #d7b5e9);
-  border-radius: 35px 35px 15px 15px;
-  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
+
+  background:
+    linear-gradient(
+      180deg,
+      #e7afd3,
+      #c998c9
+    );
+
+  border-radius: 30px 30px 16px 16px;
+
+  clip-path: polygon(
+    32% 0,
+    68% 0,
+    78% 22%,
+    100% 100%,
+    0 100%,
+    22% 22%
+  );
 }
+
+
+/* =========================================================
+   ARMS
+========================================================= */
 
 .arm {
   position: absolute;
+
+  top: 18px;
+
   width: 17px;
-  height: 65px;
-  background: #
+  height: 55px;
+
+  background: #ffddca;
+
+  border-radius: 20px;
+
+  z-index: 2;
+}
+
+.arm-left {
+  left: 3px;
+
+  transform: rotate(17deg);
+}
+
+.arm-right {
+  right: 3px;
+
+  transform: rotate(-17deg);
+}
+
+
+/* =========================================================
+   LEGS
+========================================================= */
+
+.leg {
+  position: absolute;
+
+  bottom: -4px;
+
+  width: 19px;
+  height: 28px;
+
+  background: #ffddca;
+
+  border-radius: 0 0 12px 12px;
+}
+
+.leg-left {
+  left: 40px;
+}
+
+.leg-right {
+  right: 40px;
+}
+
+
+/* =========================================================
+   SPEECH BUBBLE
+========================================================= */
+
+.speech-bubble {
+  position: absolute;
+
+  right: -10px;
+  top: 20px;
+
+  max-width: 185px;
+
+  padding: 13px 17px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid rgba(194, 153, 184, 0.25);
+
+  border-radius: 22px 22px 22px 5px;
+
+  color: #735c70;
+
+  font-size: 13px;
+
+  box-shadow:
+    0 10px 30px rgba(169, 124, 158, 0.14);
+
+  opacity: 0;
+
+  transform:
+    translateY(8px)
+    scale(0.9);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  z-index: 8;
+}
+
+.speech-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -8px;
+  left: 22px;
+
+  width: 15px;
+  height: 15px;
+
+  background: white;
+
+  transform: rotate(45deg);
+
+  border-right: 1px solid rgba(194, 153, 184, 0.2);
+  border-bottom: 1px solid rgba(194, 153, 184, 0.2);
+}
+
+.speech-bubble.show {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* =========================================================
+   CHARACTER HINT
+========================================================= */
+
+.character-hint {
+  margin-top: 4px;
+
+  color: #aa8aa4;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary-button,
+.secondary-button {
+  min-height: 48px;
+
+  padding: 13px 24px;
+
+  border-radius: 999px;
+
+  color: #fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d49abd,
+      #b98ec4
+    );
+
+  box-shadow:
+    0 10px 25px rgba(183, 131, 170, 0.2);
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 14px 30px rgba(183, 131, 170, 0.3);
+
+  filter: brightness(1.04);
+}
+
+.primary-button:active,
+.secondary-button:active {
+  transform: scale(0.95);
+}
+
+#exploreButton {
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-section {
+  padding: 110px 20px 100px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 250, 255, 0.7),
+      rgba(250, 241, 255, 0.9)
+    );
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+  max-width: 720px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+.section-label {
+  margin-bottom: 10px;
+
+  color: #a47c9b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin-bottom: 12px;
+
+  font-family: Georgia, serif;
+
+  color: #5c4d5d;
+
+  font-size: clamp(32px, 7vw, 58px);
+
+  line-height: 1.1;
+}
+
+.section-heading > p:last-child {
+  color: #8b7a89;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.info-grid {
+  width: min(100%, 950px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-card {
+  position: relative;
+
+  min-height: 155px;
+
+  padding: 23px 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  border:
+    1px solid rgba(192, 157, 188, 0.22);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 30px rgba(168, 127, 160, 0.08);
+
+  color: #665568;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.info-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 5px;
+
+  border:
+    1px solid rgba(210, 173, 201, 0.12);
+
+  border-radius: 20px;
+
+  pointer-events: none;
+}
+
+.info-card:hover {
+  transform:
+    translateY(-8px)
+    rotate(-1deg);
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 18px 38px rgba(164, 121, 157, 0.16);
+}
+
+.info-card:active {
+  transform: scale(0.96);
+}
+
+.card-icon {
+  margin-bottom: 8px;
+
+  font-size: 30px;
+
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover .card-icon {
+  transform:
+    scale(1.2)
+    rotate(8deg);
+}
+
+.info-card strong {
+  display: block;
+
+  font-size: 15px;
+
+  text-transform: lowercase;
+}
+
+.info-card small {
+  margin-top: 5px;
+
+  color: #aa95a8;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   ABOUT → GAME BUTTON
+========================================================= */
+
+#gameButton {
+  display: block;
+
+  margin: 42px auto 0;
+}
+
+
+/* =========================================================
+   GAME SECTION
+========================================================= */
+
+.game-section {
+  padding: 105px 20px 110px;
+
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(255, 216, 235, 0.75),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(221, 211, 255, 0.7),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   GAME PANEL
+========================================================= */
+
+.game-panel {
+  width: min(100%, 760px);
+
+  margin: 0 auto;
+
+  padding: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border:
+    1px solid rgba(194, 155, 187, 0.25);
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 20px 60px rgba(166, 124, 160, 0.12);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   GAME STATS
+========================================================= */
+
+.game-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.stat {
+  padding: 13px 8px;
+
+  text-align: center;
+
+  background: rgba(255, 248, 253, 0.9);
+
+  border-radius: 18px;
+
+  border:
+    1px solid rgba(196, 157, 190, 0.2);
+}
+
+.stat span {
+  display: block;
+
+  color: #a28b9e;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+}
+
+.stat strong {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #725a6e;
+
+  font-size: 19px;
+}
+
+
+/* =========================================================
+   HEART GAME AREA
+========================================================= */
+
+.heart-game-area {
+  position: relative;
+
+  width: 100%;
+  height: 370px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 216, 233, 0.8),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(224, 215, 255, 0.8),
+      transparent 30%
+    ),
+    #fff9fd;
+
+  border:
+    2px dashed rgba(190, 150, 181, 0.25);
+}
+
+.game-start-message {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+
+  text-align: center;
+
+  color: #9a8296;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   HEARTS GENERATED BY JAVASCRIPT
+========================================================= */
+
+.heart-target {
+  position: absolute;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  font-size: 36px;
+
+  line-height: 1;
+
+  filter:
+    drop-shadow(
+      0 7px 8px
+      rgba(196, 87, 116, 0.18)
+    );
+
+  animation:
+    heartAppear 0.35s ease,
+    heartPulse 1s ease-in-out infinite;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.heart-target:hover {
+  transform: scale(1.25) rotate(-8deg);
+}
+
+.heart-target:active {
+  transform: scale(0.75);
+}
+
+@keyframes heartAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heartPulse {
+  0%,
+  100% {
+    filter:
+      drop-shadow(
+        0 7px 8px
+        rgba(196, 87, 116, 0.18)
+      );
+  }
+
+  50% {
+    filter:
+      drop-shadow(
+        0 10px 14px
+        rgba(196, 87, 116, 0.32)
+      );
+  }
+}
+
+
+/* =========================================================
+   GAME MESSAGE
+========================================================= */
+
+.game-message {
+  min-height: 27px;
+
+  margin: 13px 0;
+
+  text-align: center;
+
+  color: #a27694;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-section {
+  padding: 105px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffaff,
+      #faf3ff
+    );
+}
+
+.music-card {
+  width: min(100%, 680px);
+
+  margin: 0 auto;
+
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid rgba(192, 153, 186, 0.22);
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 15px 45px rgba(162, 123, 155, 0.1);
+}
+
+.music-icon {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3c4db,
+      #d8c2ed
+    );
+
+  font-size: 28px;
+}
+
+.music-info {
+  flex: 1;
+}
+
+.music-info strong {
+  display: block;
+
+  color: #655365;
+
+  font-size: 18px;
+}
+
+.music-info span {
+  display: block;
+
+  color: #a18b9d;
+
+  font-size: 13px;
+}
+
+.music-card audio {
+  width: 250px;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   ASSIGNMENTS
+========================================================= */
+
+.assignment-section {
+  padding: 105px 20px;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 223, 237, 0.8),
+      transparent 30%
+    ),
+    #fffaff;
+}
+
+.assignment-list {
+  width: min(100%, 780px);
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.assignment-item {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 18px 20px;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  border:
+    1px solid rgba(190, 154, 185, 0.22);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 25px rgba(163, 121, 157, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.assignment-item:hover {
+  transform: translateX(6px);
+
+  box-shadow:
+    0 15px 35px rgba(163, 121, 157, 0.13);
+}
+
+.folder-icon {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  background: #fff0f7;
+
+  font-size: 25px;
+}
+
+.assignment-info {
+  flex: 1;
+}
+
+.assignment-info strong {
+  display: block;
+
+  color: #675467;
+
+  font-size: 16px;
+}
+
+.assignment-info span {
+  display: block;
+
+  color: #a08c9e;
+
+  font-size: 12px;
+}
+
+.assignment-button {
+  padding: 9px 15px;
+
+  border-radius: 999px;
+
+  background: #f0d9e8;
+
+  color: #7b5f75;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.assignment-button:hover {
+  background: #dfbdd3;
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  visibility: hidden;
+
+  opacity: 0;
+
+  z-index: 100;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal.show {
+  visibility: visible;
+
+  opacity: 1;
+}
+
+.modal-backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(75, 57, 74, 0.38);
+
+  backdrop-filter: blur(7px);
+}
+
+.modal-card {
+  position: relative;
+
+  width: min(100%, 430px);
+
+  padding: 35px 28px 30px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffaff,
+      #fff0f8
+    );
+
+  border-radius: 30px;
+
+  box-shadow:
+    0 30px 80px rgba(70, 48, 68, 0.25);
+
+  transform:
+    translateY(20px)
+    scale(0.92);
+
+  transition:
+    transform 0.35s ease;
+}
+
+.modal.show .modal-card {
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.modal-close {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  background: transparent;
+
+  color: #9c8297;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+
+  transition: 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f7e3ef;
+
+  transform: rotate(90deg);
+}
+
+.modal-flower {
+  margin-bottom: 8px;
+
+  font-size: 35px;
+
+  animation:
+    modalFlower 2s ease-in-out infinite;
+}
+
+@keyframes modalFlower {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg) scale(1.08);
+  }
+}
+
+.modal-card h3 {
+  margin-bottom: 12px;
+
+  font-family: Georgia, serif;
+
+  color: #624f61;
+
+  font-size: 30px;
+}
+
+.modal-card p {
+  margin-bottom: 22px;
+
+  color: #887687;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding: 35px 20px 45px;
+
+  text-align: center;
+
+  color: #a18d9e;
+
+  background: #faf1fa;
+
+  font-size: 12px;
+}
+
+footer p + p {
+  margin-top: 2px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL SUPPORT
+========================================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   EXTRA LITTLE DECORATIONS
+========================================================= */
+
+.hero::before {
+  content: "♡";
+
+  position: absolute;
+
+  top: 20%;
+  left: 8%;
+
+  color: rgba(191, 144, 182, 0.25);
+
+  font-size: 40px;
+
+  animation:
+    littleFloat 4s ease-in-out infinite;
+}
+
+.hero::after {
+  content: "✿";
+
+  position: absolute;
+
+  right: 8%;
+  bottom: 20%;
+
+  color: rgba(214, 150, 185, 0.25);
+
+  font-size: 35px;
+
+  animation:
+    littleFloat 5s ease-in-out infinite reverse;
+}
+
+@keyframes littleFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1000px) {
+
+  .hero {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .character-wrap {
+    transform: scale(0.92);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .info-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .music-card {
+    flex-wrap: wrap;
+  }
+
+  .music-card audio {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 14px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: 100svh;
+
+    padding:
+      55px
+      16px
+      45px;
+  }
+
+  .sparkles {
+    margin-bottom: 18px;
+
+    font-size: 18px;
+
+    letter-spacing: 4px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+  }
+
+  .title-button span {
+    font-size: 48px;
+  }
+
+  .title-button strong {
+    font-size: 67px;
+  }
+
+  .title-button::after {
+    right: -5px;
+    bottom: -15px;
+  }
+
+  .hero-subtitle {
+    max-width: 330px;
+
+    margin-top: 25px;
+
+    font-size: 14px;
+  }
+
+
+  /* CHARACTER */
+
+  .character-wrap {
+    width: 230px;
+    height: 260px;
+
+    margin-top: 5px;
+  }
+
+  .character-button {
+    width: 155px;
+    height: 215px;
+  }
+
+  .character {
+    transform: scale(0.86);
+    transform-origin: bottom center;
+  }
+
+  .speech-bubble {
+    right: -15px;
+    top: 18px;
+
+    max-width: 165px;
+
+    padding: 10px 13px;
+
+    font-size: 11px;
+  }
+
+  .character-hint {
+    font-size: 10px;
+  }
+
+
+  /* BUTTON */
+
+  .primary-button,
+  .secondary-button {
+    min-height: 45px;
+
+    padding: 11px 18px;
+
+    font-size: 12px;
+  }
+
+
+  /* SECTIONS */
+
+  .about-section,
+  .game-section,
+  .music-section,
+  .assignment-section {
+    padding:
+      80px
+      15px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-label {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+  }
+
+
+  /* INFO */
+
+  .info-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .info-card {
+    min-height: 135px;
+
+    padding: 17px 9px;
+
+    border-radius: 20px;
+  }
+
+  .card-icon {
+    font-size: 25px;
+  }
+
+  .info-card strong {
+    font-size: 13px;
+  }
+
+  .info-card small {
+    font-size: 9px;
+  }
+
+
+  /* GAME */
+
+  .game-panel {
+    padding: 13px;
+
+    border-radius: 23px;
+  }
+
+  .game-stats {
+    gap: 6px;
+  }
+
+  .stat {
+    padding: 10px 4px;
+
+    border-radius: 14px;
+  }
+
+  .stat span {
+    font-size: 8px;
+  }
+
+  .stat strong {
+    font-size: 16px;
+  }
+
+  .heart-game-area {
+    height: 310px;
+
+    border-radius: 19px;
+  }
+
+  .heart-target {
+    width: 44px;
+    height: 44px;
+
+    font-size: 32px;
+  }
+
+
+  /* MUSIC */
+
+  .music-card {
+    padding: 17px;
+
+    gap: 12px;
+
+    border-radius: 22px;
+  }
+
+  .music-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 21px;
+  }
+
+  .music-info strong {
+    font-size: 15px;
+  }
+
+  .music-info span {
+    font-size: 11px;
+  }
+
+
+  /* ASSIGNMENTS */
+
+  .assignment-item {
+    padding: 14px;
+
+    gap: 11px;
+
+    border-radius: 18px;
+  }
+
+  .folder-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    font-size: 21px;
+  }
+
+  .assignment-info strong {
+    font-size: 13px;
+  }
+
+  .assignment-info span {
+    font-size: 10px;
+  }
+
+  .assignment-button {
+    padding: 7px 10px;
+
+    font-size: 9px;
+  }
+
+
+  /* MODAL */
+
+  .modal {
+    padding: 15px;
+  }
+
+  .modal-card {
+    padding:
+      30px
+      20px
+      25px;
+
+    border-radius: 25px;
+  }
+
+  .modal-card h3 {
+    font-size: 25px;
+  }
+
+  .modal-card p {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .title-button span {
+    font-size: 42px;
+  }
+
+  .title-button strong {
+    font-size: 58px;
+  }
+
+  .character-wrap {
+    transform: scale(0.9);
+  }
+
+  .info-grid {
+    gap: 8px;
+  }
+
+  .info-card {
+    min-height: 125px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
