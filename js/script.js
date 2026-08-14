@@ -1,6 +1,6 @@
 /* =========================================================
    POTONGAN-POTONGAN RANIA
-   JAVASCRIPT
+   JAVASCRIPT - VERSI FINAL
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -12,19 +12,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const tombolJudul = document.querySelector(".tombol.judul");
 
     if (tombolJudul) {
+
         tombolJudul.addEventListener("click", function () {
 
-            const bagianTentang = document.querySelector(
-                ".bagian.tentang"
-            );
+            const bagianTentang =
+                document.querySelector(".bagian.tentang");
 
             if (bagianTentang) {
+
                 bagianTentang.scrollIntoView({
                     behavior: "smooth"
                 });
+
             }
 
         });
+
     }
 
 
@@ -32,8 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
        2. KARAKTER RANIA
     ===================================================== */
 
-    const tombolKarakter = document.querySelector(".tombol.karakter");
-    const karakter = document.querySelector(".karakter");
+    const tombolKarakter =
+        document.querySelector(".tombol.karakter");
+
+    const karakter =
+        document.querySelector(".karakter");
 
     if (tombolKarakter && karakter) {
 
@@ -64,12 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(function () {
 
-        const gelembung = document.querySelector(
-            ".gelembung.ucapan"
-        );
+        const gelembung =
+            document.querySelector(".gelembung.ucapan");
 
         if (gelembung) {
+
             gelembung.classList.add("muncul");
+
         }
 
     }, 1000);
@@ -79,38 +86,46 @@ document.addEventListener("DOMContentLoaded", function () {
        4. ANIMASI BAGIAN SAAT DI-SCROLL
     ===================================================== */
 
-    const semuaBagian = document.querySelectorAll("bagian");
+    const semuaBagian =
+        document.querySelectorAll(".bagian");
 
     if ("IntersectionObserver" in window) {
 
-        const observer = new IntersectionObserver(
-            function (entries) {
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
 
-                entries.forEach(function (entry) {
+                    entries.forEach(function (entry) {
 
-                    if (entry.isIntersecting) {
+                        if (entry.isIntersecting) {
 
-                        entry.target.classList.add("terlihat");
+                            entry.target.classList.add(
+                                "terlihat"
+                            );
 
-                    }
+                        }
 
-                });
+                    });
 
-            },
-            {
-                threshold: 0.15
-            }
-        );
+                },
+                {
+                    threshold: 0.15
+                }
+            );
 
 
         semuaBagian.forEach(function (bagian) {
+
             observer.observe(bagian);
+
         });
 
     } else {
 
         semuaBagian.forEach(function (bagian) {
+
             bagian.classList.add("terlihat");
+
         });
 
     }
@@ -120,17 +135,33 @@ document.addEventListener("DOMContentLoaded", function () {
        5. KARTU INFORMASI
     ===================================================== */
 
-    const semuaKartu = document.querySelectorAll(
-        "tombol.kartu.informasi"
-    );
+    /*
+       PENTING:
+       HTML kamu menggunakan <button>,
+       jadi selector harus "button.kartu.informasi",
+       BUKAN "tombol.kartu.informasi".
+    */
 
-    const modal = document.querySelector(".modal");
-    const judulModal = document.querySelector(
-        '[pengenal="Judul modal"]'
-    );
-    const teksModal = document.querySelector(
-        '[pengenal="Teks modal"]'
-    );
+    const semuaKartu =
+        document.querySelectorAll(
+            "button.kartu.informasi"
+        );
+
+
+    const modal =
+        document.querySelector(".modal");
+
+
+    const judulModal =
+        document.querySelector(
+            '[pengenal="Judul modal"]'
+        );
+
+
+    const teksModal =
+        document.querySelector(
+            '[pengenal="Teks modal"]'
+        );
 
 
     semuaKartu.forEach(function (kartu) {
@@ -139,20 +170,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const judul =
                 kartu.getAttribute("judul-data") ||
+                kartu.getAttribute("data-judul") ||
                 "Tentang Rania ♡";
+
 
             const teks =
                 kartu.getAttribute("teks-data") ||
+                kartu.getAttribute("data-teks") ||
                 "Ini adalah salah satu potongan kecil tentang Rania ♡";
 
 
             if (judulModal) {
+
                 judulModal.textContent = judul;
+
             }
 
 
             if (teksModal) {
+
                 teksModal.textContent = teks;
+
             }
 
 
@@ -178,13 +216,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const tombolTutupModal =
         document.querySelector(".tutup.modal");
 
+
     const tombolOke =
-        document.querySelector('[pengenal="modalOke"]');
+        document.querySelector(
+            '[pengenal="modalOke"]'
+        );
+
 
     function tutupModal() {
 
         if (modal) {
+
             modal.classList.remove("aktif");
+
         }
 
         document.body.classList.remove(
@@ -215,24 +259,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       7. KLIK LATAR MODAL
+       7. TUTUP MODAL KLIK LATAR
     ===================================================== */
 
-    const latarModal =
-        document.querySelector(".latar.belakang.modal");
+    if (modal) {
 
-    if (latarModal) {
+        modal.addEventListener("click", function (event) {
 
-        latarModal.addEventListener(
-            "click",
-            tutupModal
-        );
+            if (event.target === modal) {
+
+                tutupModal();
+
+            }
+
+        });
 
     }
 
 
     /* =====================================================
-       8. TOMBOL ESC UNTUK MENUTUP MODAL
+       8. ESC UNTUK MENUTUP MODAL
     ===================================================== */
 
     document.addEventListener(
@@ -265,6 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 kartu.classList.add("dipilih");
 
+
                 setTimeout(function () {
 
                     kartu.classList.remove(
@@ -288,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ".tombol.sekunder"
         );
 
+
     const areaGame =
         document.querySelector(
             ".area.permainan"
@@ -305,19 +353,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!areaGame) return;
 
+
         const target =
             document.createElement("button");
+
 
         target.className =
             "target-hati";
 
-        target.innerHTML = "♡";
 
-        target.type = "button";
+        target.innerHTML =
+            "♡";
+
+
+        target.type =
+            "button";
 
 
         const posisiX =
             Math.random() * 80 + 10;
+
 
         const posisiY =
             Math.random() * 70 + 10;
@@ -325,6 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         target.style.left =
             posisiX + "%";
+
 
         target.style.top =
             posisiY + "%";
@@ -336,13 +392,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!gameAktif) return;
 
+
                 skor++;
 
                 targetGame++;
 
+
                 updateStatistik();
 
+
                 target.remove();
+
 
                 ambilTargetGame();
 
@@ -362,10 +422,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 '[pengenal="skor"]'
             );
 
+
         const sasaranElement =
             document.querySelector(
                 '[pengenal="saran"]'
             );
+
 
         const waktuElement =
             document.querySelector(
@@ -374,20 +436,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (skorElement) {
+
             skorElement.textContent =
                 skor;
+
         }
 
 
         if (sasaranElement) {
+
             sasaranElement.textContent =
                 targetGame;
+
         }
 
 
         if (waktuElement) {
+
             waktuElement.textContent =
                 waktu;
+
         }
 
     }
@@ -397,13 +465,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!areaGame) return;
 
+
         const semuaTarget =
             areaGame.querySelectorAll(
                 ".target-hati"
             );
 
+
         semuaTarget.forEach(function (target) {
+
             target.remove();
+
         });
 
     }
@@ -413,17 +485,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         gameAktif = false;
 
+
         clearInterval(timerGame);
 
+
         bersihkanTarget();
+
 
         if (areaGame) {
 
             const pesan =
                 document.createElement("div");
 
+
             pesan.className =
                 "pesan-selesai-game";
+
 
             pesan.innerHTML =
                 "♡ Waktu habis!<br>" +
@@ -461,14 +538,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         clearInterval(timerGame);
 
+
         bersihkanTarget();
 
 
         gameAktif = true;
 
+
         skor = 0;
 
+
         waktu = 10;
+
 
         targetGame = 0;
 
@@ -487,23 +568,25 @@ document.addEventListener("DOMContentLoaded", function () {
         ambilTargetGame();
 
 
-        timerGame = setInterval(
-            function () {
+        timerGame =
+            setInterval(
+                function () {
 
-                waktu--;
-
-                updateStatistik();
+                    waktu--;
 
 
-                if (waktu <= 0) {
+                    updateStatistik();
 
-                    selesaiGame();
 
-                }
+                    if (waktu <= 0) {
 
-            },
-            1000
-        );
+                        selesaiGame();
+
+                    }
+
+                },
+                1000
+            );
 
     }
 
@@ -519,33 +602,87 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       11. KLIK HATI DI HALAMAN
+       11. BUNGA / HATI BISA DIPENCET 🌷
     ===================================================== */
 
-    const semuaHati =
+    /*
+       Dibuat banyak selector supaya bunga kamu
+       tetap bisa bekerja walaupun class HTML-nya
+       menggunakan nama yang sedikit berbeda.
+    */
+
+    const semuaBunga =
         document.querySelectorAll(
-            ".hati, .berkilau"
+            ".bunga, .bunga-jatuh, .kelopak, .flower, .hati, .berkilau"
         );
 
 
-    semuaHati.forEach(function (hati) {
+    semuaBunga.forEach(function (bunga) {
 
-        hati.addEventListener(
+        bunga.style.cursor = "pointer";
+
+
+        bunga.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                hati.classList.add(
-                    "loncat"
+                event.stopPropagation();
+
+
+                bunga.classList.add("loncat");
+
+
+                /* bikin gelembung kecil */
+
+                const gelembungKecil =
+                    document.createElement("span");
+
+
+                gelembungKecil.className =
+                    "gelembung-bunga";
+
+
+                gelembungKecil.innerHTML =
+                    "♡";
+
+
+                document.body.appendChild(
+                    gelembungKecil
                 );
+
+
+                const posisi =
+                    bunga.getBoundingClientRect();
+
+
+                gelembungKecil.style.left =
+                    (
+                        posisi.left +
+                        posisi.width / 2
+                    ) + "px";
+
+
+                gelembungKecil.style.top =
+                    (
+                        posisi.top +
+                        window.scrollY
+                    ) + "px";
 
 
                 setTimeout(function () {
 
-                    hati.classList.remove(
+                    bunga.classList.remove(
                         "loncat"
                     );
 
                 }, 500);
+
+
+                setTimeout(function () {
+
+                    gelembungKecil.remove();
+
+                }, 1000);
 
             }
         );
@@ -554,13 +691,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       12. EFEK KLIK UMUM PADA TOMBOL
+       12. SEMUA TOMBOL DAPAT EFEK KLIK
     ===================================================== */
 
     const semuaTombol =
-        document.querySelectorAll(
-            "tombol"
-        );
+        document.querySelectorAll("button");
 
 
     semuaTombol.forEach(function (tombol) {
@@ -603,14 +738,15 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
 
         const pembuka =
-            document.querySelector(
-                ".pahlawan"
-            );
+            document.querySelector(".pahlawan");
+
 
         if (pembuka) {
+
             pembuka.classList.add(
                 "siap"
             );
+
         }
 
     }, 300);
@@ -637,6 +773,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const posisi =
                     window.scrollY * 0.03;
+
 
                 karakterAnimasi.style.transform =
                     "translateY(" +
@@ -672,6 +809,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     event.preventDefault();
 
+
                     kartu.click();
 
                 }
@@ -690,8 +828,19 @@ document.addEventListener("DOMContentLoaded", function () {
         "♡ Potongan-potongan Rania berhasil dimuat!"
     );
 
+
     console.log(
-        "Website siap dimainkan ♡"
+        "♡ Kartu informasi siap!"
+    );
+
+
+    console.log(
+        "♡ Bunga siap dipencet!"
+    );
+
+
+    console.log(
+        "♡ Game siap dimainkan!"
     );
 
 });
