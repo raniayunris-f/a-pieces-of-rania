@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pieces of Rania ♡</title>
+
+  <!-- CSS kita masukkan setelah ini -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       FALLING FLOWERS
+  ====================================================== -->
+  <div id="flower-container"></div>
+
+
+  <!-- =====================================================
+       PAGE 1 — COVER
+  ====================================================== -->
+  <section id="page1" class="page active">
+
+    <div class="soft-glow"></div>
+
+    <div class="mini-project">
+      ✦ TIK PROJECT<br>
+      <span>school assignment</span>
+    </div>
+
+    <div class="welcome">
+      WELCOME
+    </div>
+
+    <div class="flower-title">✿</div>
+
+    <h1 class="main-title">
+      Pieces of<br>
+      <span>Rania</span>
+    </h1>
+
+    <p class="intro-text">
+      a little place where I keep my thoughts,<br>
+      stories, creativity, and little pieces of my world. ♡
+    </p>
+
+
+    <!-- CLICK THIS -->
+    <button class="get-to-know-button" onclick="goToPage(2)">
+      get to know me
+    </button>
+
+    <p class="click-hint">
+      click me ♡
+    </p>
+
+    <div class="cover-decoration left">❀</div>
+    <div class="cover-decoration right">✿</div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PAGE 2 — GET TO KNOW ME
+  ====================================================== -->
+  <section id="page2" class="page">
+
+    <div class="page-decoration top-flower">✿</div>
+
+    <p class="small-heading">
+      a little piece of me ♡
+    </p>
+
+    <h2 class="page-title">
+      get to know me
+    </h2>
+
+    <p class="page-subtitle">
+      tap the little cards to discover more about me
+    </p>
+
+
+    <!-- =================================================
+         MUSIC PLAYER
+    ================================================== -->
+    <div class="music-player">
+
+      <div class="cassette">
+
+        <div class="cassette-label">
+          <span>TORONTO</span>
+          <small>Daniel Caesar</small>
+        </div>
+
+        <div class="cassette-reel reel-left"></div>
+        <div class="cassette-reel reel-right"></div>
+
+      </div>
+
+      <button id="musicButton" onclick="toggleMusic()">
+        ▶ PLAY
+      </button>
+
+      <audio id="myMusic" loop>
+        <source src="assets/toronto.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+
+
+
+    <!-- =================================================
+         INFORMATION CARDS
+    ================================================== -->
+    <div class="info-grid">
+
+      <button class="info-card" onclick="showInfo('name')">
+        <span>♡</span>
+        name
+      </button>
+
+      <button class="info-card" onclick="showInfo('school')">
+        <span>✿</span>
+        school
+      </button>
+
+      <button class="info-card" onclick="showInfo('hobby')">
+        <span>♡</span>
+        hobby
+      </button>
+
+      <button class="info-card" onclick="showInfo('food')">
+        <span>✿</span>
+        fav food
+      </button>
+
+      <button class="info-card" onclick="showInfo('music')">
+        <span>♡</span>
+        music
+      </button>
+
+      <button class="info-card" onclick="showInfo('mbti')">
+        <span>✿</span>
+        MBTI
+      </button>
+
+      <button class="info-card" onclick="showInfo('dream')">
+        <span>♡</span>
+        dreams
+      </button>
+
+      <button class="info-card" onclick="showInfo('anything')">
+        <span>✿</span>
+        anything
+      </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         POPUP INFORMATION
+    ================================================== -->
+    <div id="infoPopup" class="info-popup">
+
+      <div class="popup-box">
+
+        <button class="close-popup" onclick="closeInfo()">
+          ×
+        </button>
+
+        <div id="popupIcon">♡</div>
+
+        <h3 id="popupTitle">
+          hello ♡
+        </h3>
+
+        <p id="popupText">
+          tap one of the cards to know more about me.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         GAME BUTTON
+    ================================================== -->
+    <div class="game-intro">
+
+      <p>you've reached the end of my little introduction ♡</p>
+
+      <button onclick="goToPage(3)" class="game-button">
+        ✿ games
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PAGE 3 — THROW THE HEART GAME
+  ====================================================== -->
+  <section id="page3" class="page game-page">
+
+    <div class="game-top">
+
+      <p class="small-heading">
+        a tiny little game ♡
+      </p>
+
+      <h2 class="game-title">
+        throw the heart
+      </h2>
+
+      <p>
+        collect 100 hearts!
+      </p>
+
+    </div>
+
+
+    <!-- SCORE -->
+    <div class="score-box">
+
+      <span>HEARTS</span>
+
+      <strong>
+        <span id="score">0</span>/100
+      </strong>
+
+    </div>
+
+
+    <!-- =================================================
+         GAME AREA
+    ================================================== -->
+    <div id="gameArea" class="game-area">
+
+      <!-- CHARACTER -->
+      <div id="character" class="character">
+
+        <div class="head">♡</div>
+
+        <div class="body"></div>
+
+        <div class="arm left-arm"></div>
+        <div class="arm right-arm"></div>
+
+        <div class="leg left-leg"></div>
+        <div class="leg right-leg"></div>
+
+      </div>
+
+
+      <!-- TARGET -->
+      <div id="heartBasket" class="heart-basket">
+
+        <div class="basket-heart">
+          ♡
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- GAME CONTROLS -->
+    <div class="game-controls">
+
+      <button onclick="throwHeart()" class="throw-button">
+        ♡ THROW
+      </button>
+
+      <button onclick="resetGame()" class="reset-button">
+        ↻ RESET
+      </button>
+
+    </div>
+
+
+    <p class="game-tip">
+      tap THROW and send the hearts into the basket ♡
+    </p>
+
+
+    <!-- WIN POPUP -->
+    <div id="winPopup" class="win-popup">
+
+      <div class="win-box">
+
+        <div class="big-heart">
+          ♡
+        </div>
+
+        <h2>
+          you did it!
+        </h2>
+
+        <p>
+          you filled my little heart<br>
+          with 100 hearts ♡
+        </p>
+
+        <button onclick="resetGame()">
+          play again
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- BACK BUTTON -->
+    <button onclick="goToPage(2)" class="back-button">
+      ← back
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT KITA MASUKKAN SETELAH INI
+  ====================================================== -->
+  <script src="js/script.js"></script>
+
+</body>
+                 </html>
