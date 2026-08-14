@@ -5,363 +5,522 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pieces of Rania 🌸</title>
+  <title>Pieces of Rania ♡</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- =================================
-       DECORATIVE FALLING FLOWERS
-  ================================== -->
+  <!-- FLOATING HEARTS -->
+  <div class="floating-hearts" aria-hidden="true"></div>
 
-  <div id="fallingFlowers"></div>
-
-
-  <!-- =================================
-       OPENING
-  ================================== -->
 
   <main>
 
+    <!-- ================================
+         HERO / OPENING
+    ================================= -->
+
     <section class="hero" id="home">
 
-      <div class="hero-decoration">
-        <span>✿</span>
-        <span>♡</span>
-        <span>❀</span>
-        <span>🌸</span>
-        <span>✿</span>
+      <div class="sparkles">
+        ✦　♡　✿　♡　✦
       </div>
 
       <p class="eyebrow">
-        WELCOME TO
-      </p>
-
-      <h1 class="main-title">
-        Pieces of <span>Rania</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        a little world made of my pieces ♡
+        WELCOME TO MY LITTLE WORLD
       </p>
 
 
-      <!-- ANIMATED CHARACTER -->
-
-      <div class="character-area">
-
-        <div class="speech-bubble">
-          hii! i'm Rania ♡
-        </div>
-
-        <div class="character" aria-label="cute character">
-
-          <div class="character-hair"></div>
-
-          <div class="character-head">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-
-            <div class="blush left-blush"></div>
-            <div class="blush right-blush"></div>
-
-            <div class="mouth">⌣</div>
-          </div>
-
-          <div class="character-body">
-
-            <div class="arm left-arm"></div>
-            <div class="arm right-arm"></div>
-
-            <div class="dress"></div>
-
-            <div class="leg left-leg"></div>
-            <div class="leg right-leg"></div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <p class="invitation">
-        wanna know me a little better?
-      </p>
+      <!-- JUDUL BISA DIPENCET -->
 
       <button
-        id="getToKnowMe"
-        class="main-button"
+        class="title-button"
+        id="titleButton"
         type="button">
 
-        GET TO KNOW ME
-        <span>↓</span>
+        <span>Pieces of</span>
+        <strong>Rania</strong>
 
       </button>
 
-      <div class="scroll-hint">
-        scroll & explore
+
+      <p class="hero-subtitle">
+        a tiny website filled with little pieces of me ♡
+      </p>
+
+
+      <!-- ================================
+           ANIMATED CHARACTER
+      ================================= -->
+
+      <div class="character-wrap">
+
+        <button
+          class="character-button"
+          id="characterButton"
+          type="button"
+          aria-label="Talk to Rania">
+
+          <div class="character">
+
+            <div class="hair"></div>
+
+            <div class="head">
+
+              <span class="eye eye-left"></span>
+              <span class="eye eye-right"></span>
+
+              <span class="blush blush-left"></span>
+              <span class="blush blush-right"></span>
+
+              <span class="mouth">
+                ⌣
+              </span>
+
+            </div>
+
+
+            <div class="body">
+
+              <span class="arm arm-left"></span>
+              <span class="arm arm-right"></span>
+
+              <span class="dress"></span>
+
+              <span class="leg leg-left"></span>
+              <span class="leg leg-right"></span>
+
+            </div>
+
+          </div>
+
+        </button>
+
+
+        <!-- BUBBLE KARAKTER -->
+
+        <div
+          class="speech-bubble"
+          id="speechBubble">
+
+          Hello! Thanks for coming! ♡
+
+        </div>
+
       </div>
+
+
+      <p class="character-hint">
+        tap my little character ♡
+      </p>
+
+
+      <!-- TOMBOL GET TO KNOW ME -->
+
+      <button
+        class="primary-button"
+        id="exploreButton"
+        type="button">
+
+        GET TO KNOW ME ↓
+
+      </button>
 
     </section>
 
 
 
-    <!-- =================================
-         ABOUT RANIA
-    ================================== -->
+    <!-- ================================
+         GET TO KNOW ME
+    ================================= -->
 
-    <section class="about-section" id="about">
+    <section
+      class="about-section"
+      id="about">
 
-      <div class="section-intro">
+
+      <div class="section-heading">
 
         <p class="section-label">
-          ♡ A LITTLE PIECE OF ME ♡
+          ♡ GET TO KNOW ME ♡
         </p>
 
         <h2>
-          Hello, I'm <span>Rania!</span>
+          Pick a little box.
         </h2>
 
         <p>
-          let me introduce myself...
+          Tap anything you want to know about me.
         </p>
 
       </div>
 
 
-      <div class="about-card">
+      <!-- ================================
+           INTERACTIVE BOXES
+      ================================= -->
 
-        <div class="about-character">
-
-          <div class="mini-character">
-
-            <div class="mini-head"></div>
-            <div class="mini-body"></div>
-            <div class="mini-leg left"></div>
-            <div class="mini-leg right"></div>
-
-          </div>
-
-        </div>
+      <div class="info-grid">
 
 
-        <div class="about-text">
+        <!-- ABOUT ME -->
 
-          <p class="hello-text">
-            Hello everyone! 👋🏻🤍
-          </p>
+        <button
+          class="info-card"
+          data-title="About Me"
+          data-text="Hi! I'm Rania Yunris Febriningtyas. You can call me Rania! I'm a student at SMPN 1 Kediri and I'm currently in class 9I. ♡"
+          type="button">
 
-          <p>
-            My name is
-            <strong>Rania Yunris Febriningtyas</strong>,
-            but you can call me <strong>Rania</strong>!
-          </p>
+          <span class="card-icon">
+            🌷
+          </span>
 
-          <p>
-            Aku adalah murid dari
-            <strong>SMPN 1 Kediri</strong>
-            dan sekarang di kelas
-            <strong>9I</strong>!
-          </p>
+          <strong>
+            about me
+          </strong>
 
-          <p>
-            This little website is my TIK project,
-            made to collect some little pieces
-            about me. 🌷
-          </p>
+          <small>
+            tap to open
+          </small>
 
-        </div>
+        </button>
+
+
+
+        <!-- HOBBIES -->
+
+        <button
+          class="info-card"
+          data-title="My Hobbies"
+          data-text="I love listening to calm music, exploring cute creative things, making little projects, and learning something new when I feel curious. 🎧🌸"
+          type="button">
+
+          <span class="card-icon">
+            🎧
+          </span>
+
+          <strong>
+            hobbies
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- FAVORITE COLOR -->
+
+        <button
+          class="info-card"
+          data-title="Favorite Color"
+          data-text="Pastel colors! Soft pink, lilac, cream and other gentle colors are totally my vibe. 🎀"
+          type="button">
+
+          <span class="card-icon">
+            🎨
+          </span>
+
+          <strong>
+            favorite color
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- FAVORITE FOOD -->
+
+        <button
+          class="info-card"
+          data-title="Favorite Food"
+          data-text="Chocolate. No complicated explanation needed. Chocolate is simply chocolate. 🍫♡"
+          type="button">
+
+          <span class="card-icon">
+            🍫
+          </span>
+
+          <strong>
+            favorite food
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- MUSIC -->
+
+        <button
+          class="info-card"
+          data-title="My Music"
+          data-text="I like calm, soft songs that make everything feel a little slower and more peaceful. ♫"
+          type="button">
+
+          <span class="card-icon">
+            🎶
+          </span>
+
+          <strong>
+            music
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- PERSONALITY -->
+
+        <button
+          class="info-card"
+          data-title="My Personality"
+          data-text="My MBTI is ENFP! I can be curious, expressive, energetic and very easily excited about things I like. ✨"
+          type="button">
+
+          <span class="card-icon">
+            💗
+          </span>
+
+          <strong>
+            personality
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- DREAMS -->
+
+        <button
+          class="info-card"
+          data-title="My Dreams"
+          data-text="I have several dreams for my future: law, becoming a doctor, and becoming a lecturer. I don't want to rush choosing just one dream yet. ⚖️🩺🎓"
+          type="button">
+
+          <span class="card-icon">
+            🌟
+          </span>
+
+          <strong>
+            dreams
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
+
+
+
+        <!-- REMINDER -->
+
+        <button
+          class="info-card"
+          data-title="A Little Reminder"
+          data-text="You don't have to become someone else to be worthy. Keep growing, keep learning, and just be yourself. ♡"
+          type="button">
+
+          <span class="card-icon">
+            🫶🏻
+          </span>
+
+          <strong>
+            little reminder
+          </strong>
+
+          <small>
+            tap to open
+          </small>
+
+        </button>
 
       </div>
 
 
-      <!-- =================================
-           LITTLE THINGS
-      ================================== -->
 
-      <div class="little-things">
+      <!-- BUTTON TO GAME -->
+
+      <button
+        class="secondary-button"
+        id="gameButton"
+        type="button">
+
+        PLAY A LITTLE GAME ♡
+
+      </button>
+
+    </section>
+
+
+
+    <!-- ================================
+         HEART GAME
+    ================================= -->
+
+    <section
+      class="game-section"
+      id="game">
+
+
+      <div class="section-heading">
 
         <p class="section-label">
-          ✿ LITTLE THINGS ABOUT ME ✿
+          ♡ A LITTLE GAME ♡
         </p>
 
         <h2>
-          Get to know my little world
+          Collect the Hearts!
         </h2>
 
-
-        <div class="info-grid">
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🎨</span>
-
-            <strong>
-              Favorite Color
-            </strong>
-
-            <span>
-              pastel colors ♡
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🍫</span>
-
-            <strong>
-              Favorite Food
-            </strong>
-
-            <span>
-              chocolate!
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🎧</span>
-
-            <strong>
-              Music
-            </strong>
-
-            <span>
-              calm & soft songs
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🌷</span>
-
-            <strong>
-              MBTI
-            </strong>
-
-            <span>
-              ENFP
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">⚖️</span>
-
-            <strong>
-              Dream
-            </strong>
-
-            <span>
-              law
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🩺</span>
-
-            <strong>
-              Another Dream
-            </strong>
-
-            <span>
-              doctor
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">🎓</span>
-
-            <strong>
-              Future Dream
-            </strong>
-
-            <span>
-              lecturer
-            </span>
-
-          </button>
-
-
-          <button class="info-card" type="button">
-
-            <span class="info-icon">💗</span>
-
-            <strong>
-              Little Reminder
-            </strong>
-
-            <span>
-              just be yourself
-            </span>
-
-          </button>
-
-
-        </div>
+        <p>
+          Tap the ❤️ hearts before they disappear.
+        </p>
 
       </div>
 
-      
-      <!-- =================================
-     MINI GAME
+
+
+      <div class="game-panel">
+
+
+        <!-- GAME STATS -->
+
+        <div class="game-stats">
+
+  <div>
+    <span>SCORE</span>
+    <strong id="score">0</strong>
+  </div>
+
+  <div>
+    <span>GOAL</span>
+    <strong>10</strong>
+  </div>
+
+  <div>
+    <span>TIME</span>
+    <strong>
+      <span id="time">20</span>s
+    </strong>
+  </div>
+
+</div>
+
+
+<!-- GAME AREA -->
+
+<div
+  id="gameArea"
+  class="game-area">
+
+  <div
+    class="game-start-message"
+    id="gameStartMessage">
+
+    Ready?<br>
+    Catch 10 hearts! ❤️
+
+  </div>
+
+</div>
+
+
+<!-- START GAME -->
+
+<button
+  class="primary-button game-start"
+  id="startGame"
+  type="button">
+
+  ❤️ START GAME ❤️
+
+</button>
+
+
+<p
+  class="game-message"
+  id="gameMessage">
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     LITTLE SOUNDTRACK
 ================================= -->
 
-<section class="game-section" id="game">
+<section
+  class="music-section"
+  id="music">
 
-  <p class="section-label">
-    🌸 A LITTLE GAME 🌸
-  </p>
+  <div class="section-heading">
 
-  <h2>
-    Catch Rania's Flowers!
-  </h2>
+    <p class="section-label">
+      ♫ LITTLE SOUNDTRACK ♫
+    </p>
 
-  <p class="game-description">
-    tap the flowers before they disappear ♡
-  </p>
+    <h2>
+      A song for the journey
+    </h2>
 
-  <div class="game-box">
+    <p>
+      Just a cute music corner —
+      the player below is a decoration.
+    </p>
 
-    <div class="game-top">
+  </div>
 
-      <div>
-        SCORE
-        <strong id="score">0</strong>
-      </div>
 
-      <div>
-        TIME
-        <strong id="time">20</strong>
-      </div>
+  <div class="music-card">
+
+    <div class="vinyl">
+      ♫
+    </div>
+
+    <div>
+
+      <strong>
+        soft little moments
+      </strong>
+
+      <span>
+        calm music • pastel mood • ♡
+      </span>
 
     </div>
 
-    <div id="gameArea" class="game-area"></div>
+    <button
+      id="fakePlay"
+      type="button"
+      aria-label="Play decorative music">
 
-    <button id="startGame" class="game-button" type="button">
-      🌸 START GAME 🌸
+      ▶
+
     </button>
-
-    <p id="gameMessage" class="game-message"></p>
 
   </div>
 
@@ -369,207 +528,217 @@
 
 
 
-      <!-- =================================
-           LITTLE SOUNDTRACK
-      ================================== -->
+<!-- ================================
+     TASK COLLECTION
+================================= -->
 
-      <section class="music-section">
+<section
+  class="assignment-section"
+  id="assignments">
 
-        <p class="section-label">
-          🎧 LITTLE SOUNDTRACK
-        </p>
+  <div class="section-heading">
 
-        <div class="music-player">
+    <p class="section-label">
+      📚 MY TIK CORNER
+    </p>
 
-          <div class="music-disc">
-            ♫
-          </div>
+    <h2>
+      Task Collection
+    </h2>
 
-          <div class="music-information">
+    <p>
+      A little place to collect my school projects.
+    </p>
 
-            <strong>
-              a little song for Rania
-            </strong>
+  </div>
 
-            <span>
-              calm • dreamy • soft ♡
-            </span>
 
-          </div>
+  <div class="assignment-list">
 
-          <button
-            id="fakeMusicButton"
-            type="button">
-            ▶
-          </button>
 
-        </div>
+    <!-- PROJECT 1 -->
 
-        <p class="music-note">
-          ♡ music player is just a cute decoration ♡
-        </p>
+    <div class="assignment-item">
 
-      </section>
+      <div class="folder-icon">
+        📁
+      </div>
 
+      <div class="assignment-info">
 
-      <!-- =================================
-           ENDING
-      ================================== -->
+        <strong>
+          TIK Project — Pieces of Rania
+        </strong>
 
-      <section class="ending-section">
+        <span>
+          current project ♡
+        </span>
 
-        <div class="ending-decoration">
-          🌸　✿　♡　❀　🌷
-        </div>
+      </div>
 
-        <p class="section-label">
-          YOU'VE REACHED THE END ♡
-        </p>
+      <button
+        class="assignment-button"
+        type="button"
+        data-message="You're already looking at my Pieces of Rania project! ♡">
 
-        <h2>
-          You found little pieces
-          of <span>Rania.</span>
-        </h2>
+        OPEN
 
-        <p>
-          thank you for spending a little time
-          in my tiny world 🌷
-        </p>
+      </button>
 
-        <div class="ending-character">
+    </div>
 
-          <div class="wave-character">
 
-            <div class="wave-head"></div>
-            <div class="wave-body"></div>
 
-            <div class="wave-arm">
-              ♡
-            </div>
+    <!-- PROJECT 2 -->
 
-          </div>
+    <div class="assignment-item">
 
-        </div>
+      <div class="folder-icon">
+        📂
+      </div>
 
-      </section>
+      <div class="assignment-info">
 
+        <strong>
+          Another Project
+        </strong>
 
-      <!-- =================================
-           TIK ASSIGNMENTS
-      ================================== -->
+        <span>
+          coming soon ♡
+        </span>
 
-      <section
-        class="assignment-section"
-        id="assignments">
+      </div>
 
-        <p class="section-label">
-          📚 SCHOOL CORNER
-        </p>
+      <button
+        class="assignment-button"
+        type="button"
+        data-message="This folder is still waiting for another project. 🌷">
 
-        <h2>
-          My TIK Assignments
-        </h2>
+        SOON
 
-        <p class="assignment-intro">
-          a little place to collect my school projects ♡
-        </p>
+      </button>
 
-        <div class="assignment-board">
+    </div>
 
-          <div class="assignment-item">
 
-            <div class="folder-icon">
-              📁
-            </div>
 
-            <div class="assignment-info">
+    <!-- PROJECT 3 -->
 
-              <strong>
-                TIK Project
-              </strong>
+    <div class="assignment-item">
 
-              <span>
-                Pieces of Rania
-              </span>
+      <div class="folder-icon">
+        📝
+      </div>
 
-            </div>
+      <div class="assignment-info">
 
-            <button
-              type="button"
-              class="assignment-button">
-              OPEN
-            </button>
+        <strong>
+          Future Assignment
+        </strong>
 
-          </div>
+        <span>
+          I'll put it here later ♡
+        </span>
 
+      </div>
 
-          <div class="assignment-item">
+      <button
+        class="assignment-button"
+        type="button"
+        data-message="Coming soon! I'll fill this space with another assignment. ✨">
 
-            <div class="folder-icon">
-              📁
-            </div>
+        SOON
 
-            <div class="assignment-info">
+      </button>
 
-              <strong>
-                Tugas Berikutnya
-              </strong>
+    </div>
 
-              <span>
-                coming soon ♡
-              </span>
+  </div>
 
-            </div>
+</section>
 
-            <button
-              type="button"
-              class="assignment-button">
-              SOON
-            </button>
+</main>
 
-          </div>
 
 
-          <div class="assignment-item">
+<!-- ================================
+     POP-UP MODAL
+================================= -->
 
-            <div class="folder-icon">
-              📁
-            </div>
+<div
+  class="modal"
+  id="infoModal"
+  aria-hidden="true">
 
-            <div class="assignment-info">
+  <div
+    class="modal-backdrop"
+    id="modalBackdrop">
+  </div>
 
-              <strong>
-                Another Project
-              </strong>
 
-              <span>
-                coming soon ♡
-              </span>
+  <div
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle">
 
-            </div>
+    <button
+      class="modal-close"
+      id="modalClose"
+      type="button"
+      aria-label="Close">
 
-            <button
-              type="button"
-              class="assignment-button">
-              SOON
-            </button>
+      ×
 
-          </div>
+    </button>
 
-        </div>
 
-      </section>
+    <div class="modal-flower">
+      ♡
+    </div>
 
-    </section>
 
-  </main>
+    <h3 id="modalTitle">
+      Title
+    </h3>
 
 
-  <!-- =================================
-       JAVASCRIPT
-  ================================== -->
+    <p id="modalText">
+      Text
+    </p>
 
-  <script src="js/script.js"></script>
+
+    <button
+      class="primary-button"
+      id="modalOkay"
+      type="button">
+
+      okay ♡
+
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- ================================
+     FOOTER
+================================= -->
+
+<footer>
+
+  made with ♡ by Rania •
+  Pieces of Rania
+
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="js/script.js"></script>
 
 </body>
 
