@@ -364,4 +364,55 @@ body::after {
   }
 
   50% {
-    transform: translate
+    transform: translateY(-15px) rotate(-2deg);
+  }
+     /* =========================================
+   PAGE TRANSITION — GET TO KNOW ME
+========================================= */
+
+.page {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(25px) scale(0.98);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    visibility 0.6s ease;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.page.page-leaving {
+  opacity: 0;
+  transform: translateY(-25px) scale(0.98);
+}
+
+/* efek saat tombol ditekan */
+body.transitioning {
+  overflow: hidden;
+}
+
+body.transitioning .page.active {
+  transform: scale(0.97);
+  opacity: 0.4;
+}
+
+/* tombol / tulisan get to know me */
+#getToKnowMe {
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+#getToKnowMe:hover {
+  transform: scale(1.04);
+}
+
+#getToKnowMe:active {
+  transform: scale(0.96);
+}
