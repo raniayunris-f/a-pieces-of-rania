@@ -1,745 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#f8dce9">
 
   <title>Pieces of Rania ♡</title>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- FLOATING HEARTS -->
-  <div class="floating-hearts" aria-hidden="true"></div>
+  <!-- =========================
+       FLOATING EFFECTS
+  ========================== -->
+
+  <div id="sparkles"></div>
 
 
-  <main>
+  <!-- =========================
+       PAGE 1
+       COVER
+  ========================== -->
 
-    <!-- ================================
-         HERO / OPENING
-    ================================= -->
+  <section class="page hero" id="home">
 
-    <section class="hero" id="home">
+    <div
+      class="petal-layer"
+      id="petalLayer"
+      aria-hidden="true"
+    ></div>
 
-      <div class="sparkles">
-        ✦　♡　✿　♡　✦
+
+    <div class="hero-card">
+
+      <div class="tiny-title">
+        ✿ W E L C O M E&nbsp; T O ✿
       </div>
 
-      <p class="eyebrow">
-        WELCOME TO MY LITTLE WORLD
+
+      <h1>
+        Pieces of<br>
+        Rania
+      </h1>
+
+
+      <p class="hero-subtitle">
+        a little place where I keep my thoughts,<br>
+        stories, creativity, and little pieces of my world. ♡
       </p>
 
 
-      <!-- JUDUL BISA DIPENCET -->
+      <!-- HEART INTERACTION -->
 
       <button
-        class="title-button"
-        id="titleButton"
-        type="button">
+        class="love-orb"
+        id="loveOrb"
+        type="button"
+        aria-label="Click the heart"
+      >
 
-        <span>Pieces of</span>
-        <strong>Rania</strong>
+        <span class="orb-heart">
+          ♡
+        </span>
+
+        <span class="orb-label">
+          click me ♡
+        </span>
 
       </button>
 
 
-      <p class="hero-subtitle">
-        a tiny website filled with little pieces of me ♡
+      <!-- GET TO KNOW ME -->
+
+      <button
+        class="get-button"
+        id="goAbout"
+        type="button"
+      >
+
+        <span class="small-click">
+          klik
+        </span>
+
+        <strong>
+          get to know me
+        </strong>
+
+      </button>
+
+    </div>
+
+
+    <p class="made">
+      made with ♡ by Rania
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       PAGE 2
+       ABOUT ME
+  ========================== -->
+
+  <section
+    class="page about"
+    id="about"
+  >
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        a tiny piece of me
       </p>
 
+      <h2>
+        get to know <span>me</span>
+      </h2>
 
-      <!-- ================================
-           ANIMATED CHARACTER
-      ================================= -->
+      <p>
+        tap the cards — they flip ♡
+      </p>
 
-      <div class="character-wrap">
+    </div>
+
+
+
+    <div class="about-grid">
+
+
+      <!-- NAME -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              name
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              Rania
+            </b>
+
+            <small>
+              Rania Yunris Febriningtyas
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+
+      <!-- SCHOOL -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              school
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              SMPN 1 Kediri
+            </b>
+
+            <small>
+              class 9I
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+
+      <!-- MBTI -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              mbti
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              ENFP
+            </b>
+
+            <small>
+              curious, warm & full of ideas
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+
+      <!-- FAVORITE -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              favorite
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              chocolate ♡
+            </b>
+
+            <small>
+              pastel things & calm music
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+
+      <!-- DREAMS -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              dreams
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              law • doctor • lecturer
+            </b>
+
+            <small>
+              still dreaming big
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+
+      <!-- MUSIC / HOBBY -->
+
+      <button
+        class="info-card"
+        type="button"
+      >
+
+        <span class="card-inner">
+
+          <span class="card-front">
+
+            <b>
+              hobby
+            </b>
+
+            <small>
+              tap to flip
+            </small>
+
+          </span>
+
+
+          <span class="card-back">
+
+            <b>
+              music ♫
+            </b>
+
+            <small>
+              listening to calm songs
+            </small>
+
+          </span>
+
+        </span>
+
+      </button>
+
+
+    </div>
+
+
+    <button
+      class="next-button"
+      id="toMusic"
+      type="button"
+    >
+      continue to music ♫
+    </button>
+
+  </section>
+
+
+
+  <!-- =========================
+       PAGE 3
+       MUSIC
+  ========================== -->
+
+  <section
+    class="page music-page"
+    id="music"
+  >
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        a song for this little world
+      </p>
+
+      <h2>
+        music <span>corner</span>
+      </h2>
+
+    </div>
+
+
+
+    <div class="cassette-card">
+
+
+      <!-- CASSETTE -->
+
+      <div
+        class="cassette"
+        id="cassette"
+      >
+
+        <div class="cassette-label">
+
+          <span>
+            MORFEM
+          </span>
+
+          <strong>
+            Tidur Dimanapun<br>
+            Bermimpi Kapanpun
+          </strong>
+
+        </div>
+
+
+        <div class="reel reel-left"></div>
+
+        <div class="reel reel-right"></div>
+
+        <div class="tape-window"></div>
+
+      </div>
+
+
+
+      <!-- MUSIC PLAYER -->
+
+      <div class="song-info">
+
+        <span>
+          now playing ♡
+        </span>
+
+        <h3>
+          Tidur Dimanapun<br>
+          Bermimpi Kapanpun
+        </h3>
+
+        <p>
+          Morfem
+        </p>
+
 
         <button
-          class="character-button"
-          id="characterButton"
+          class="play-button"
+          id="playButton"
           type="button"
-          aria-label="Talk to Rania">
-
-          <div class="character">
-
-            <div class="hair"></div>
-
-            <div class="head">
-
-              <span class="eye eye-left"></span>
-              <span class="eye eye-right"></span>
-
-              <span class="blush blush-left"></span>
-              <span class="blush blush-right"></span>
-
-              <span class="mouth">
-                ⌣
-              </span>
-
-            </div>
-
-
-            <div class="body">
-
-              <span class="arm arm-left"></span>
-              <span class="arm arm-right"></span>
-
-              <span class="dress"></span>
-
-              <span class="leg leg-left"></span>
-              <span class="leg leg-right"></span>
-
-            </div>
-
-          </div>
-
+        >
+          ▶ PLAY
         </button>
 
 
-        <!-- BUBBLE KARAKTER -->
+        <audio
+          id="musicAudio"
+          preload="metadata"
+        >
+
+          <source
+            src="assets/Morfem - Tidur Dimanapun Bermimpi Kapanpun (SPOTISAVER).mp3"
+            type="audio/mpeg"
+          >
+
+        </audio>
+
+
+        <div class="audio-progress">
+
+          <span id="progressBar"></span>
+
+        </div>
+
+
+        <small id="audioStatus">
+          tap play ♫
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="next-button"
+      id="toGame"
+      type="button"
+    >
+      let's play ♡
+    </button>
+
+  </section>
+
+
+
+  <!-- =========================
+       PAGE 4
+       GAME
+  ========================== -->
+
+  <section
+    class="page game-page"
+    id="game"
+  >
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        mini game
+      </p>
+
+      <h2>
+        throw the <span>heart</span> ♡
+      </h2>
+
+      <p>
+        drag the heart from the character's hand,
+        aim at the basket, then let go.
+      </p>
+
+    </div>
+
+
+
+    <div class="game-wrap">
+
+
+      <!-- SCORE -->
+
+      <div class="score-box">
+
+        <span>
+          POINT
+        </span>
+
+        <strong id="score">
+          0
+        </strong>
+
+        <small>
+          /100
+        </small>
+
+      </div>
+
+
+
+      <!-- GAME AREA -->
+
+      <div
+        class="game-stage"
+        id="gameStage"
+      >
+
+
+        <div class="game-cloud cloud-one"></div>
+
+        <div class="game-cloud cloud-two"></div>
+
+
+
+        <!-- CHARACTER -->
 
         <div
-          class="speech-bubble"
-          id="speechBubble">
+          class="character"
+          id="character"
+        >
 
-          Hello! Thanks for coming! ♡
+          <div class="head"></div>
 
+          <div class="body"></div>
+
+          <div class="arm arm-back"></div>
+
+          <div class="arm arm-front"></div>
+
+          <div class="leg leg-left"></div>
+
+          <div class="leg leg-right"></div>
+
+        </div>
+
+
+
+        <!-- HEART -->
+
+        <div
+          class="hand-heart"
+          id="throwHeart"
+          role="button"
+          aria-label="Drag the heart to throw it"
+          tabindex="0"
+        >
+          ♥
+        </div>
+
+
+
+        <!-- BASKET -->
+
+        <div
+          class="basket"
+          id="basket"
+        >
+
+          <div class="basket-rim"></div>
+
+          <div class="basket-body"></div>
+
+          <span>
+            ♡
+          </span>
+
+        </div>
+
+
+
+        <div
+          class="game-message"
+          id="gameMessage"
+        >
+          drag me ♡
         </div>
 
       </div>
 
 
-      <p class="character-hint">
-        tap my little character ♡
+
+      <!-- GAME BUTTONS -->
+
+      <div class="game-controls">
+
+        <button
+          type="button"
+          id="resetGame"
+        >
+          reset
+        </button>
+
+        <button
+          type="button"
+          id="helpGame"
+        >
+          how to play?
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ASSIGNMENTS
+    ========================== -->
+
+    <div
+      class="task-section"
+      id="tasks"
+    >
+
+      <p class="eyebrow">
+        school corner
+      </p>
+
+      <h2>
+        my <span>assignments</span> ♡
+      </h2>
+
+      <p class="task-note">
+        tempat untuk menyimpan tugas TIK dan tugas lainnya.
       </p>
 
 
-      <!-- TOMBOL GET TO KNOW ME -->
+      <div class="tasks-grid">
 
-      <button
-        class="primary-button"
-        id="exploreButton"
-        type="button">
+        <a
+          class="task-card"
+          href="#"
+          onclick="return false;"
+        >
 
-        GET TO KNOW ME ↓
+          <span>
+            01
+          </span>
 
-      </button>
+          <b>
+            Tugas TIK
+          </b>
 
-    </section>
+          <small>
+            coming soon ♡
+          </small>
 
-
-
-    <!-- ================================
-         GET TO KNOW ME
-    ================================= -->
-
-    <section
-      class="about-section"
-      id="about">
+        </a>
 
 
-      <div class="section-heading">
+        <a
+          class="task-card"
+          href="#"
+          onclick="return false;"
+        >
 
-        <p class="section-label">
-          ♡ GET TO KNOW ME ♡
-        </p>
+          <span>
+            02
+          </span>
 
-        <h2>
-          Pick a little box.
-        </h2>
+          <b>
+            My Project
+          </b>
 
-        <p>
-          Tap anything you want to know about me.
-        </p>
+          <small>
+            coming soon ♡
+          </small>
+
+        </a>
+
+
+        <a
+          class="task-card"
+          href="#"
+          onclick="return false;"
+        >
+
+          <span>
+            03
+          </span>
+
+          <b>
+            Other Work
+          </b>
+
+          <small>
+            coming soon ♡
+          </small>
+
+        </a>
 
       </div>
 
+    </div>
 
-      <!-- ================================
-           INTERACTIVE BOXES
-      ================================= -->
 
-      <div class="info-grid">
+    <footer>
+      Pieces of Rania · made with love ♡
+    </footer>
 
+  </section>
 
-        <!-- ABOUT ME -->
 
-        <button
-          class="info-card"
-          data-title="About Me"
-          data-text="Hi! I'm Rania Yunris Febriningtyas. You can call me Rania! I'm a student at SMPN 1 Kediri and I'm currently in class 9I. ♡"
-          type="button">
 
-          <span class="card-icon">
-            🌷
-          </span>
-
-          <strong>
-            about me
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- HOBBIES -->
-
-        <button
-          class="info-card"
-          data-title="My Hobbies"
-          data-text="I love listening to calm music, exploring cute creative things, making little projects, and learning something new when I feel curious. 🎧🌸"
-          type="button">
-
-          <span class="card-icon">
-            🎧
-          </span>
-
-          <strong>
-            hobbies
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- FAVORITE COLOR -->
-
-        <button
-          class="info-card"
-          data-title="Favorite Color"
-          data-text="Pastel colors! Soft pink, lilac, cream and other gentle colors are totally my vibe. 🎀"
-          type="button">
-
-          <span class="card-icon">
-            🎨
-          </span>
-
-          <strong>
-            favorite color
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- FAVORITE FOOD -->
-
-        <button
-          class="info-card"
-          data-title="Favorite Food"
-          data-text="Chocolate. No complicated explanation needed. Chocolate is simply chocolate. 🍫♡"
-          type="button">
-
-          <span class="card-icon">
-            🍫
-          </span>
-
-          <strong>
-            favorite food
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- MUSIC -->
-
-        <button
-          class="info-card"
-          data-title="My Music"
-          data-text="I like calm, soft songs that make everything feel a little slower and more peaceful. ♫"
-          type="button">
-
-          <span class="card-icon">
-            🎶
-          </span>
-
-          <strong>
-            music
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- PERSONALITY -->
-
-        <button
-          class="info-card"
-          data-title="My Personality"
-          data-text="My MBTI is ENFP! I can be curious, expressive, energetic and very easily excited about things I like. ✨"
-          type="button">
-
-          <span class="card-icon">
-            💗
-          </span>
-
-          <strong>
-            personality
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- DREAMS -->
-
-        <button
-          class="info-card"
-          data-title="My Dreams"
-          data-text="I have several dreams for my future: law, becoming a doctor, and becoming a lecturer. I don't want to rush choosing just one dream yet. ⚖️🩺🎓"
-          type="button">
-
-          <span class="card-icon">
-            🌟
-          </span>
-
-          <strong>
-            dreams
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-
-
-        <!-- REMINDER -->
-
-        <button
-          class="info-card"
-          data-title="A Little Reminder"
-          data-text="You don't have to become someone else to be worthy. Keep growing, keep learning, and just be yourself. ♡"
-          type="button">
-
-          <span class="card-icon">
-            🫶🏻
-          </span>
-
-          <strong>
-            little reminder
-          </strong>
-
-          <small>
-            tap to open
-          </small>
-
-        </button>
-
-      </div>
-
-
-
-      <!-- BUTTON TO GAME -->
-
-      <button
-        class="secondary-button"
-        id="gameButton"
-        type="button">
-
-        PLAY A LITTLE GAME ♡
-
-      </button>
-
-    </section>
-
-
-
-    <!-- ================================
-         HEART GAME
-    ================================= -->
-
-    <section
-      class="game-section"
-      id="game">
-
-
-      <div class="section-heading">
-
-        <p class="section-label">
-          ♡ A LITTLE GAME ♡
-        </p>
-
-        <h2>
-          Collect the Hearts!
-        </h2>
-
-        <p>
-          Tap the ❤️ hearts before they disappear.
-        </p>
-
-      </div>
-
-
-
-      <div class="game-panel">
-
-
-        <!-- GAME STATS -->
-
-        <div class="game-stats">
-
-  <div>
-    <span>SCORE</span>
-    <strong id="score">0</strong>
-  </div>
-
-  <div>
-    <span>GOAL</span>
-    <strong>10</strong>
-  </div>
-
-  <div>
-    <span>TIME</span>
-    <strong>
-      <span id="time">20</span>s
-    </strong>
-  </div>
-
-</div>
-
-
-<!-- GAME AREA -->
-
-<div
-  id="gameArea"
-  class="game-area">
+  <!-- TOAST -->
 
   <div
-    class="game-start-message"
-    id="gameStartMessage">
+    class="toast"
+    id="toast"
+    role="status"
+  ></div>
 
-    Ready?<br>
-    Catch 10 hearts! ❤️
 
-  </div>
 
-</div>
+  <!-- JAVASCRIPT -->
 
-
-<!-- START GAME -->
-
-<button
-  class="primary-button game-start"
-  id="startGame"
-  type="button">
-
-  ❤️ START GAME ❤️
-
-</button>
-
-
-<p
-  class="game-message"
-  id="gameMessage">
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================
-     LITTLE SOUNDTRACK
-================================= -->
-
-<section
-  class="music-section"
-  id="music">
-
-  <div class="section-heading">
-
-    <p class="section-label">
-      ♫ LITTLE SOUNDTRACK ♫
-    </p>
-
-    <h2>
-      A song for the journey
-    </h2>
-
-    <p>
-      Just a cute music corner —
-      the player below is a decoration.
-    </p>
-
-  </div>
-
-
-  <div class="music-card">
-
-    <div class="vinyl">
-      ♫
-    </div>
-
-    <div>
-
-      <strong>
-        soft little moments
-      </strong>
-
-      <span>
-        calm music • pastel mood • ♡
-      </span>
-
-    </div>
-
-    <button
-      id="fakePlay"
-      type="button"
-      aria-label="Play decorative music">
-
-      ▶
-
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- ================================
-     TASK COLLECTION
-================================= -->
-
-<section
-  class="assignment-section"
-  id="assignments">
-
-  <div class="section-heading">
-
-    <p class="section-label">
-      📚 MY TIK CORNER
-    </p>
-
-    <h2>
-      Task Collection
-    </h2>
-
-    <p>
-      A little place to collect my school projects.
-    </p>
-
-  </div>
-
-
-  <div class="assignment-list">
-
-
-    <!-- PROJECT 1 -->
-
-    <div class="assignment-item">
-
-      <div class="folder-icon">
-        📁
-      </div>
-
-      <div class="assignment-info">
-
-        <strong>
-          TIK Project — Pieces of Rania
-        </strong>
-
-        <span>
-          current project ♡
-        </span>
-
-      </div>
-
-      <button
-        class="assignment-button"
-        type="button"
-        data-message="You're already looking at my Pieces of Rania project! ♡">
-
-        OPEN
-
-      </button>
-
-    </div>
-
-
-
-    <!-- PROJECT 2 -->
-
-    <div class="assignment-item">
-
-      <div class="folder-icon">
-        📂
-      </div>
-
-      <div class="assignment-info">
-
-        <strong>
-          Another Project
-        </strong>
-
-        <span>
-          coming soon ♡
-        </span>
-
-      </div>
-
-      <button
-        class="assignment-button"
-        type="button"
-        data-message="This folder is still waiting for another project. 🌷">
-
-        SOON
-
-      </button>
-
-    </div>
-
-
-
-    <!-- PROJECT 3 -->
-
-    <div class="assignment-item">
-
-      <div class="folder-icon">
-        📝
-      </div>
-
-      <div class="assignment-info">
-
-        <strong>
-          Future Assignment
-        </strong>
-
-        <span>
-          I'll put it here later ♡
-        </span>
-
-      </div>
-
-      <button
-        class="assignment-button"
-        type="button"
-        data-message="Coming soon! I'll fill this space with another assignment. ✨">
-
-        SOON
-
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-
-<!-- ================================
-     POP-UP MODAL
-================================= -->
-
-<div
-  class="modal"
-  id="infoModal"
-  aria-hidden="true">
-
-  <div
-    class="modal-backdrop"
-    id="modalBackdrop">
-  </div>
-
-
-  <div
-    class="modal-card"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modalTitle">
-
-    <button
-      class="modal-close"
-      id="modalClose"
-      type="button"
-      aria-label="Close">
-
-      ×
-
-    </button>
-
-
-    <div class="modal-flower">
-      ♡
-    </div>
-
-
-    <h3 id="modalTitle">
-      Title
-    </h3>
-
-
-    <p id="modalText">
-      Text
-    </p>
-
-
-    <button
-      class="primary-button"
-      id="modalOkay"
-      type="button">
-
-      okay ♡
-
-    </button>
-
-  </div>
-
-</div>
-
-
-
-<!-- ================================
-     FOOTER
-================================= -->
-
-<footer>
-
-  made with ♡ by Rania •
-  Pieces of Rania
-
-</footer>
-
-
-
-<!-- JAVASCRIPT -->
-
-<script src="js/script.js"></script>
+  <script src="script.js"></script>
 
 </body>
-
 </html>
