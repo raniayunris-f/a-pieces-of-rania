@@ -99,10 +99,10 @@ button{font:inherit;cursor:pointer}.hero{min-height:100vh;display:grid;place-ite
         ▶ Play
       </button>
 
-      <audio id="musicAudio" preload="metadata">
-        <source src="Piano%20Man.mp3" type="audio/mpeg">
+      <audio id="musikAudio" preload="auto" controls>
+  <source src="./Piano%20Man.mp3" type="audio/mpeg">
       </audio>
-
+        
     </div>
 
   </div>
@@ -216,50 +216,138 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // MUSIK
   // =========================
+const musicBtn = $("#musicBtn");
+const musicAudio = $("#musikAudio");
+const musicStatus = $("#musicStatus");
+const vinyl = $("#vinyl");
 
-  const musicBtn = $("#musicBtn");
-  const musicAudio = $("#musikAudio");
-  const musicStatus = $("#musicStatus");
+if (musicBtn && musicAudio) {
 
-  if (musicBtn && musicAudio) {
-    musicBtn.addEventListener("click", async () => {
+  musicBtn.addEventListener("click", async () => {
 
-      if (musicAudio.paused) {
-        try {
-          await musicAudio.play();
+    if (musicAudio.paused) {
 
-          musicBtn.textContent = "❚❚ Pause";
+      try {
+        await musicAudio.play();
 
-          if (musicStatus) {
-            musicStatus.textContent =
-              "♪ Piano Man — Billy Joel sedang diputar";
-          }
-
-        } catch (error) {
-          console.error(error);
-          toast("Musiknya belum bisa diputar 😭");
-        }
-
-      } else {
-        musicAudio.pause();
-
-        musicBtn.textContent = "▶ Play";
+        musicBtn.textContent = "❚❚ Pause";
 
         if (musicStatus) {
           musicStatus.textContent =
-            "Piano Man — Billy Joel";
+            "♪ Piano Man — Billy Joel sedang diputar";
         }
+
+        if (vinyl) {
+          vinyl.classList.add("playing");
+        }
+
+      } catch (error) {
+
+        console.error("Audio error:", error);
+
+        if (musicStatus) {
+          musicStatus.textContent =
+            "Musiknya belum bisa diputar 😭";
+        }
+
+        toast("File musik belum terbaca 😭");
       }
-    });
+
+    } else {
+
+      musicAudio.pause();
+
+      musicBtn.textContent = "▶ Play";
+
+      if (musicStatus) {
+        musicStatus.textContent =
+          "Piano Man — Billy Joel";
+      }
+
+      if (vinyl) {
+        vinyl.classList.remove("playing");
+      }
+
+    }
+
+  });
+
+  musicAudio.addEventListener("ended", () => {
+
+    musicBtn.textContent = "▶ Play";
+
+    if (musicStatus) {
+      musicStatus.textContent =
+        "Piano Man — Billy Joel";
+    }
+
+    if (vinyl) {
+      vinyl.classList.remove("playing");
+    }
+
+  });
+
+}
+
+
+/* =========================
+   PETALS
+========================= */
+
+const petals = $("#petals");
+
+function makePetal() {
+
+  if (!petals) return;
+
+  const e = document.createElement("span");
+
+  e.className = "petal";
+  e.textContent = Math.random() > 0.45 ? "✿" : "❀";
+
+  e.style.left = Math.random() * 100 + "vw";
+
+  e.style.setProperty(
+    "--drift",
+    Math.random() * 180 - 90 + "px"
+  );
+
+  e.style.animationDuration =
+    5 + Math.random() * 5 + "s";
+
+  e.style.fontSize =
+    15 + Math.random() * 15 + "px";
+
+  e.addEventListener("click", () => {
+
+    e.textContent = "✦";
+    e.style.animationPlayState = "paused";
+
+    setTimeout(() => {
+      e.remove();
+    }, 350);
+
+  });
+
+  petals.appendChild(e);
+
+  setTimeout(() => {
+    e.remove();
+  }, 11000);
+}
+
+if (petals) {
+
+  setInterval(makePetal, 700);
+
+  for (let i = 0; i < 7; i++) {
+    setTimeout(makePetal, i * 180);
   }
 
-});
-let ctx=null,gain=null,timer=null,playing=false,step=0;const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
-function note(){if(!ctx||!playing)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=notes[step++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.055,ctx.currentTime+.06);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.1);o.connect(g).connect(gain);o.start();o.stop(ctx.currentTime+1.15)}
-$("#musicBtn").addEventListener("click",async()=>{if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=.35;gain.connect(ctx.destination)}if(ctx.state==="suspended")await ctx.resume();playing=!playing;const b=$("#musicBtn"),v=$("#vinyl"),s=$("#musicStatus");if(playing){note();timer=setInterval(note,900);b.textContent="❚❚ Pause";s.textContent="musik tenang sedang dimainkan ♡";v.classList.add("playing")}else{clearInterval(timer);b.textContent="▶ Play";s.textContent="musik dijeda — tekan play untuk lanjut ♡";v.classList.remove("playing")}});
+}
 
-const petals=$("#petals");function makePetal(){const e=document.createElement("span");e.className="petal";e.textContent=Math.random()>.45?"✿":"❀";e.style.left=Math.random()*100+"vw";e.style.setProperty("--drift",Math.random()*180-90+"px");e.style.animationDuration=5+Math.random()*5+"s";e.style.fontSize=15+Math.random()*15+"px";e.addEventListener("click",()=>{e.textContent="✦";e.style.animationPlayState="paused";setTimeout(()=>e.remove(),350)});petals.appendChild(e);setTimeout(()=>e.remove(),11000)}setInterval(makePetal,700);for(let i=0;i<7;i++)setTimeout(makePetal,i*180);
 });
 </script>
 </body>
 </html>
+  
