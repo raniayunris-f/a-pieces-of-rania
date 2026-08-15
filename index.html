@@ -1,791 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
-  <meta name="theme-color" content="#f8dce9">
-
-  <title>Pieces of Rania ♡</title>
-
-<link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pieces of Rania ♡</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pink:#f6dfe7;--rose:#c9879d;--deep:#5b3d49;--shadow:0 18px 45px rgba(120,70,90,.14)}
+html{scroll-behavior:smooth} body{font-family:Georgia,"Times New Roman",serif;background:linear-gradient(180deg,#fffafb,#fdf1f5 45%,#fffaf8);color:#4d3740;overflow-x:hidden}
+button{font:inherit;cursor:pointer}.hero{min-height:100vh;display:grid;place-items:center;padding:28px 18px;position:relative}.hero:before{content:"";position:absolute;width:310px;height:310px;border-radius:50%;background:#f7dce6;filter:blur(4px);top:8%;right:-120px;opacity:.65}
+.hero-card{width:min(720px,100%);text-align:center;padding:54px 28px;border:1px solid #c9879d40;background:#ffffffba;backdrop-filter:blur(10px);border-radius:34px;box-shadow:var(--shadow);position:relative}
+.eyebrow{letter-spacing:.08em;text-transform:uppercase;font-size:.86rem;color:var(--rose);margin-bottom:15px}h1{font-size:clamp(3rem,11vw,6.4rem);line-height:.92;color:#3f2d34;margin-bottom:28px}h1 span{color:var(--rose);font-style:italic}
+.hero-text{font-size:clamp(1.1rem,3.5vw,1.45rem);line-height:1.65;max-width:620px;margin:auto}.hero-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:30px 0 22px}
+.btn{border:1px solid #b98798;background:#fff;border-radius:14px;padding:11px 18px;color:#5b3d49;transition:.25s;box-shadow:0 5px 14px #78465a14}.btn:hover{transform:translateY(-2px);background:#f8e7ed}.btn.primary{background:#d89aad;color:#fff;border-color:#d89aad}
+.made{font-size:.95rem;color:#8c6c78}.section{width:min(1000px,92%);margin:auto;padding:95px 0}.section-heading{text-align:center;margin-bottom:35px}h2{font-size:clamp(2rem,6vw,3.5rem);color:#3f2d34;margin-bottom:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.flip-card{height:185px;border:0;background:transparent;perspective:1000px}.flip-inner{display:block;position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;border:1px solid #c9879d40;border-radius:24px;padding:25px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:var(--shadow)}
+.flip-front{background:linear-gradient(145deg,#fff,#faeaf0)}.flip-back{transform:rotateY(180deg);background:#f1d4df;color:#563946}.flip-front b,.flip-back b{font-size:1.3rem;margin-bottom:9px}.flip-front small,.flip-back small{line-height:1.45}
+.reveal-section{display:flex;justify-content:center}.polaroid{background:#fff;padding:18px 18px 24px;border-radius:8px;box-shadow:var(--shadow);width:min(390px,100%);text-align:center;transform:rotate(-1.5deg)}
+.photo{height:330px;border-radius:5px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,#f6d9e3 0 16%,transparent 17%),linear-gradient(135deg,#efd1dc,#fff0f4)}.avatar{height:100%;display:grid;place-items:center;font-size:8rem;font-style:italic;color:#b06f87}
+.photo-cover{position:absolute;z-index:2;inset:0;background:#5b3d49f5;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;transition:.7s}.photo-cover span{font-size:4rem}.photo-cover small{opacity:.8}.photo.open .photo-cover{transform:translateY(-105%);opacity:0}
+.polaroid>p{font-size:1.5rem;margin:20px 0 13px}.music-card{background:linear-gradient(135deg,#f6dce5,#fff);border:1px solid #edd1da;border-radius:30px;padding:35px;display:flex;align-items:center;gap:28px;box-shadow:var(--shadow)}
+.vinyl{width:115px;height:115px;flex:0 0 115px;border-radius:50%;background:radial-gradient(circle,#f9e5eb 0 11%,#a66c7f 12% 18%,#4e3a40 19% 100%);display:grid;place-items:center;color:#fff;font-size:2rem;box-shadow:0 8px 20px #a66c7f55}.vinyl.playing{animation:spin 4s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.music-card h2{font-size:clamp(1.7rem,5vw,2.7rem)}#musicStatus{margin:0 0 18px;color:#765663}.assignment-box{text-align:center;background:#fff;border:1px dashed #d7a4b4;border-radius:25px;padding:40px 20px;box-shadow:var(--shadow)}
+.folder-icon{font-size:3rem;margin-bottom:10px}.assignment-box h3{font-size:1.5rem;margin-bottom:8px}.assignment-box p{margin-bottom:20px}footer{padding:35px 20px;text-align:center;background:#f6e2e8;color:#765663;position:relative}#topBtn{position:absolute;right:22px;top:20px;border:0;background:#fff;border-radius:50%;width:40px;height:40px;color:#8d5f70;font-size:1.2rem}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}.petal{position:absolute;top:-40px;pointer-events:auto;font-size:22px;animation:fall linear forwards;filter:drop-shadow(0 4px 5px #9a6d7a33)}@keyframes fall{0%{transform:translate3d(0,-30px,0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translate3d(var(--drift),110vh,0) rotate(360deg);opacity:.75}}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);background:#5b3d49;color:#fff;padding:12px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s;z-index:50;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr)}.music-card{flex-direction:column;text-align:center}.section{padding:70px 0}.hero-card{padding:40px 20px}}@media(max-width:430px){.cards{grid-template-columns:1fr}.flip-card{height:160px}.photo{height:300px}}
+</style>
 </head>
-
 <body>
+<div id="petals" aria-hidden="true"></div>
 
-  <!-- =========================
-       FLOATING EFFECTS
-  ========================== -->
-
-  <div id="sparkles"></div>
-
-
-  <!-- =========================
-       PAGE 1
-       COVER
-  ========================== -->
-
-  <section class="page hero" id="home">
-
-    <div
-      class="petal-layer"
-      id="petalLayer"
-      aria-hidden="true"
-    ></div>
-
-
-    <div class="hero-card">
-
-      <div class="tiny-title">
-        ✿ W E L C O M E&nbsp; T O ✿
-      </div>
-
-
-      <h1>
-        Pieces of<br>
-        Rania
-      </h1>
-
-
-      <p class="hero-subtitle">
-        a little place where I keep my thoughts,<br>
-        stories, creativity, and little pieces of my world. ♡
-      </p>
-
-
-      <!-- HEART INTERACTION -->
-
-      <button
-        class="love-orb"
-        id="loveOrb"
-        type="button"
-        aria-label="Click the heart"
-      >
-
-        <span class="orb-heart">
-          ♡
-        </span>
-
-        <span class="orb-label">
-          click me ♡
-        </span>
-
-      </button>
-
-
-      <!-- GET TO KNOW ME -->
-
-      <button
-        class="get-button"
-        id="goAbout"
-        type="button"
-      >
-
-        <span class="small-click">
-          klik
-        </span>
-
-        <strong>
-          get to know me
-        </strong>
-
-      </button>
-
+<header class="hero" id="home">
+  <div class="hero-card">
+    <p class="eyebrow">✿ SELAMAT DATANG DI ✿</p>
+    <h1>Pieces of <span>Rania</span></h1>
+    <p class="hero-text">sebuah tempat kecil di mana aku menyimpan pikiran, cerita, kreativitas, dan potongan-potongan kecil dari duniaku. ♡</p>
+    <div class="hero-actions">
+      <button class="btn primary" id="welcomeBtn">♡ Klik saya ♡</button>
+      <button class="btn" data-scroll="about">kenali saya</button>
     </div>
+    <p class="made">Dibuat dengan ♡ oleh Rania</p>
+  </div>
+</header>
 
+<main>
+<section class="section about" id="about">
+  <div class="section-heading">
+    <p class="eyebrow">sepotong kecil diriku</p>
+    <h2>kenali aku</h2>
+    <p>Sentuh kartunya — kartunya akan berbalik ♡</p>
+  </div>
 
-    <p class="made">
-      made with ♡ by Rania
-    </p>
+  <div class="cards">
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>nama</b><small>ketuk untuk membalik</small></span><span class="flip-back"><b>Rania Yunris Febriningtyas</b><small>kamu bisa panggil aku Rania ♡</small></span></span></button>
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>sekolah</b><small>tap untuk flip</small></span><span class="flip-back"><b>SMPN 1 Kediri</b><small>kelas 9I</small></span></span></button>
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>MBTI</b><small>tap untuk flip</small></span><span class="flip-back"><b>ENFP ✨</b><small>penasaran, hangat & penuh ide</small></span></span></button>
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>favorit</b><small>tap untuk flip</small></span><span class="flip-back"><b>cokelat 🍫</b><small>warna pastel & musik yang menenangkan</small></span></span></button>
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>mimpi</b><small>tap untuk flip</small></span><span class="flip-back"><b>hukum • dokter • dosen</b><small>masih bermimpi besar ♡</small></span></span></button>
+    <button class="flip-card" type="button"><span class="flip-inner"><span class="flip-front"><b>hobi</b><small>tap untuk flip</small></span><span class="flip-back"><b>musik ♫</b><small>mendengarkan lagu yang menenangkan</small></span></span></button>
+  </div>
+</section>
 
-  </section>
-
-
-
-  <!-- =========================
-       PAGE 2
-       ABOUT ME
-  ========================== -->
-
-  <section
-    class="page about"
-    id="about"
-  >
-
-    <div class="section-heading">
-
-      <p class="eyebrow">
-        a tiny piece of me
-      </p>
-
-      <h2>
-        get to know <span>me</span>
-      </h2>
-
-      <p>
-        tap the cards — they flip ♡
-      </p>
-
+<section class="section reveal-section">
+  <div class="polaroid">
+    <div class="photo" id="photoBox">
+      <div class="photo-cover" id="photoCover"><span>♡</span><b>sepotong Rania</b><small>ketuk untuk membuka</small></div>
+      <div class="avatar">R</div>
     </div>
-
-
-
-    <div class="about-grid">
-
-
-      <!-- NAME -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              name
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              Rania
-            </b>
-
-            <small>
-              Rania Yunris Febriningtyas
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
-
-      <!-- SCHOOL -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              school
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              SMPN 1 Kediri
-            </b>
-
-            <small>
-              class 9I
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
-
-      <!-- MBTI -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              mbti
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              ENFP
-            </b>
-
-            <small>
-              curious, warm & full of ideas
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
-
-      <!-- FAVORITE -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              favorite
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              chocolate ♡
-            </b>
-
-            <small>
-              pastel things & calm music
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
-
-      <!-- DREAMS -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              dreams
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              law • doctor • lecturer
-            </b>
-
-            <small>
-              still dreaming big
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
-
-      <!-- MUSIC / HOBBY -->
-
-      <button
-        class="info-card"
-        type="button"
-      >
-
-        <span class="card-inner">
-
-          <span class="card-front">
-
-            <b>
-              hobby
-            </b>
-
-            <small>
-              tap to flip
-            </small>
-
-          </span>
-
-
-          <span class="card-back">
-
-            <b>
-              music ♫
-            </b>
-
-            <small>
-              listening to calm songs
-            </small>
-
-          </span>
-
-        </span>
-
-      </button>
-
-
+    <p>“wanna know me?”</p>
+    <button class="btn" id="revealBtn">buka potonganku ♡</button>
+  </div>
+</section>
+
+<section class="section music-section" id="music">
+  <div class="music-card">
+    <div class="vinyl" id="vinyl">♫</div>
+    <div>
+      <p class="eyebrow">a little song</p>
+      <h2>musik untuk dunia kecil ini</h2>
+      <p id="musicStatus">musik tenang — tekan play untuk mulai ♡</p>
+      <button class="btn primary" id="musicBtn">▶ Play</button>
     </div>
-
-
-    <button
-      class="next-button"
-      id="toMusic"
-      type="button"
-    >
-      continue to music ♫
-    </button>
-
-  </section>
-
-
-
-  <!-- =========================
-       PAGE 3
-       MUSIC
-  ========================== -->
-
-  <section
-    class="page music-page"
-    id="music"
-  >
-
-    <div class="section-heading">
-
-      <p class="eyebrow">
-        a song for this little world
-      </p>
-
-      <h2>
-        music <span>corner</span>
-      </h2>
-
-    </div>
-
-
-
-    <div class="cassette-card">
-
-
-      <!-- CASSETTE -->
-
-      <div
-        class="cassette"
-        id="cassette"
-      >
-
-        <div class="cassette-label">
-
-          <span>
-            MORFEM
-          </span>
-
-          <strong>
-            Tidur Dimanapun<br>
-            Bermimpi Kapanpun
-          </strong>
-
-        </div>
-
-
-        <div class="reel reel-left"></div>
-
-        <div class="reel reel-right"></div>
-
-        <div class="tape-window"></div>
-
-      </div>
-
-
-
-      <!-- MUSIC PLAYER -->
-
-      <div class="song-info">
-
-        <span>
-          now playing ♡
-        </span>
-
-        <h3>
-          Tidur Dimanapun<br>
-          Bermimpi Kapanpun
-        </h3>
-
-        <p>
-          Morfem
-        </p>
-
-
-        <button
-          class="play-button"
-          id="playButton"
-          type="button"
-        >
-          ▶ PLAY
-        </button>
-
-
-        <audio
-          id="musicAudio"
-          preload="metadata"
-        >
-
-          <source
-            src="assets/Morfem - Tidur Dimanapun Bermimpi Kapanpun (SPOTISAVER).mp3"
-            type="audio/mpeg"
-          >
-
-        </audio>
-
-
-        <div class="audio-progress">
-
-          <span id="progressBar"></span>
-
-        </div>
-
-
-        <small id="audioStatus">
-          tap play ♫
-        </small>
-
-      </div>
-
-    </div>
-
-
-    <button
-      class="next-button"
-      id="toGame"
-      type="button"
-    >
-      let's play ♡
-    </button>
-
-  </section>
-
-
-
-  <!-- =========================
-       PAGE 4
-       GAME
-  ========================== -->
-
-  <section
-    class="page game-page"
-    id="game"
-  >
-
-    <div class="section-heading">
-
-      <p class="eyebrow">
-        mini game
-      </p>
-
-      <h2>
-        throw the <span>heart</span> ♡
-      </h2>
-
-      <p>
-        drag the heart from the character's hand,
-        aim at the basket, then let go.
-      </p>
-
-    </div>
-
-
-
-    <div class="game-wrap">
-
-
-      <!-- SCORE -->
-
-      <div class="score-box">
-
-        <span>
-          POINT
-        </span>
-
-        <strong id="score">
-          0
-        </strong>
-
-        <small>
-          /100
-        </small>
-
-      </div>
-
-
-
-      <!-- GAME AREA -->
-
-      <div
-        class="game-stage"
-        id="gameStage"
-      >
-
-
-        <div class="game-cloud cloud-one"></div>
-
-        <div class="game-cloud cloud-two"></div>
-
-
-
-        <!-- CHARACTER -->
-
-        <div
-          class="character"
-          id="character"
-        >
-
-          <div class="head"></div>
-
-          <div class="body"></div>
-
-          <div class="arm arm-back"></div>
-
-          <div class="arm arm-front"></div>
-
-          <div class="leg leg-left"></div>
-
-          <div class="leg leg-right"></div>
-
-        </div>
-
-
-
-        <!-- HEART -->
-
-        <div
-          class="hand-heart"
-          id="throwHeart"
-          role="button"
-          aria-label="Drag the heart to throw it"
-          tabindex="0"
-        >
-          ♥
-        </div>
-
-
-
-        <!-- BASKET -->
-
-        <div
-          class="basket"
-          id="basket"
-        >
-
-          <div class="basket-rim"></div>
-
-          <div class="basket-body"></div>
-
-          <span>
-            ♡
-          </span>
-
-        </div>
-
-
-
-        <div
-          class="game-message"
-          id="gameMessage"
-        >
-          drag me ♡
-        </div>
-
-      </div>
-
-
-
-      <!-- GAME BUTTONS -->
-
-      <div class="game-controls">
-
-        <button
-          type="button"
-          id="resetGame"
-        >
-          reset
-        </button>
-
-        <button
-          type="button"
-          id="helpGame"
-        >
-          how to play?
-        </button>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =========================
-         ASSIGNMENTS
-    ========================== -->
-
-    <div
-      class="task-section"
-      id="tasks"
-    >
-
-      <p class="eyebrow">
-        school corner
-      </p>
-
-      <h2>
-        my <span>assignments</span> ♡
-      </h2>
-
-      <p class="task-note">
-        tempat untuk menyimpan tugas TIK dan tugas lainnya.
-      </p>
-
-
-      <div class="tasks-grid">
-
-        <a
-          class="task-card"
-          href="#"
-          onclick="return false;"
-        >
-
-          <span>
-            01
-          </span>
-
-          <b>
-            Tugas TIK
-          </b>
-
-          <small>
-            coming soon ♡
-          </small>
-
-        </a>
-
-
-        <a
-          class="task-card"
-          href="#"
-          onclick="return false;"
-        >
-
-          <span>
-            02
-          </span>
-
-          <b>
-            My Project
-          </b>
-
-          <small>
-            coming soon ♡
-          </small>
-
-        </a>
-
-
-        <a
-          class="task-card"
-          href="#"
-          onclick="return false;"
-        >
-
-          <span>
-            03
-          </span>
-
-          <b>
-            Other Work
-          </b>
-
-          <small>
-            coming soon ♡
-          </small>
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <footer>
-      Pieces of Rania · made with love ♡
-    </footer>
-
-  </section>
-
-
-
-  <!-- TOAST -->
-
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-  ></div>
-
-
-
-  <!-- JAVASCRIPT -->
-
-<script src="js/script.js"></script>
-
+  </div>
+</section>
+
+<section class="section assignment" id="assignments">
+  <div class="section-heading">
+    <p class="eyebrow">school corner</p>
+    <h2>kumpulan tugasku 📚</h2>
+    <p>Bagian kecil untuk menyimpan perjalanan tugas-tugas sekolahku.</p>
+  </div>
+  <div class="assignment-box">
+    <div class="folder-icon">📁</div>
+    <h3>Pieces of my school days</h3>
+    <p>Tempat untuk tugas TIK dan karya-karya yang ingin kusimpan.</p>
+    <button class="btn" id="helloAssignment">♡ sentuh di sini</button>
+  </div>
+</section>
+</main>
+
+<footer><p>Made with ♡ by Rania</p><button id="topBtn">↑</button></footer>
+<div class="toast" id="toast"></div>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+$$(".flip-card").forEach(c=>c.addEventListener("click",()=>c.classList.toggle("flipped")));
+$$("[data-scroll]").forEach(b=>b.addEventListener("click",()=>document.getElementById(b.dataset.scroll)?.scrollIntoView({behavior:"smooth"})));
+function toast(m){const x=$("#toast");x.textContent=m;x.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove("show"),2400)}
+$("#welcomeBtn").addEventListener("click",()=>{toast("haiii, selamat datang di dunia kecil Rania ♡");$("#about").scrollIntoView({behavior:"smooth"})});
+const photo=$("#photoBox");const reveal=()=>{photo.classList.add("open");toast("potongan Rania terbuka ♡")};$("#photoCover").addEventListener("click",reveal);$("#revealBtn").addEventListener("click",reveal);
+$("#helloAssignment").addEventListener("click",()=>toast("semoga semua tugas Rania lancar! 📚♡"));$("#topBtn").addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+
+let ctx=null,gain=null,timer=null,playing=false,step=0;const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
+function note(){if(!ctx||!playing)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=notes[step++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.055,ctx.currentTime+.06);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.1);o.connect(g).connect(gain);o.start();o.stop(ctx.currentTime+1.15)}
+$("#musicBtn").addEventListener("click",async()=>{if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=.35;gain.connect(ctx.destination)}if(ctx.state==="suspended")await ctx.resume();playing=!playing;const b=$("#musicBtn"),v=$("#vinyl"),s=$("#musicStatus");if(playing){note();timer=setInterval(note,900);b.textContent="❚❚ Pause";s.textContent="musik tenang sedang dimainkan ♡";v.classList.add("playing")}else{clearInterval(timer);b.textContent="▶ Play";s.textContent="musik dijeda — tekan play untuk lanjut ♡";v.classList.remove("playing")}});
+
+const petals=$("#petals");function makePetal(){const e=document.createElement("span");e.className="petal";e.textContent=Math.random()>.45?"✿":"❀";e.style.left=Math.random()*100+"vw";e.style.setProperty("--drift",Math.random()*180-90+"px");e.style.animationDuration=5+Math.random()*5+"s";e.style.fontSize=15+Math.random()*15+"px";e.addEventListener("click",()=>{e.textContent="✦";e.style.animationPlayState="paused";setTimeout(()=>e.remove(),350)});petals.appendChild(e);setTimeout(()=>e.remove(),11000)}setInterval(makePetal,700);for(let i=0;i<7;i++)setTimeout(makePetal,i*180);
+});
+</script>
 </body>
 </html>
