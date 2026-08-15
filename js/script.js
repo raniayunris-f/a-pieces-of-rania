@@ -92,8 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // MUSIC
   // =========================
-  const music = document.getElementById("music");
-  const musicButton = document.querySelector("[data-music]");
+  const music = document.getElementById("musicAudio");
+  const musicButton = document.getElementById("musicBtn");
 
   if (music) {
 
