@@ -1,224 +1,120 @@
-  /* =========================================================
-   PIECES OF RANIA
-   SCRIPT.JS — FINAL
-   Cocok dengan index.html yang kamu kirim
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =======================================================
-     HELPER
-  ======================================================= */
+  // =========================
+  // FLIP CARD
+  // =========================
+  document.addEventListener("click", function (event) {
 
-  const $ = (selector) => document.querySelector(selector);
-  const $$ = (selector) => document.querySelectorAll(selector);
+    const card = event.target.closest(".flip-card");
 
-
-  /* =======================================================
-     TOAST
-  ======================================================= */
-
-  const toast = $("#toast");
-
-  let toastTimer;
-
-  function showToast(message) {
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2200);
-  }
-
-
-  /* =======================================================
-     SPARKLES
-  ======================================================= */
-
-  const sparkleContainer = $("#sparkles");
-
-  function sparkle(x, y, amount = 7) {
-    if (!sparkleContainer) return;
-
-    for (let i = 0; i < amount; i++) {
-
-      const star = document.createElement("span");
-
-      star.className = "click-sparkle";
-      star.textContent = Math.random() > 0.5 ? "✦" : "♡";
-
-      star.style.position = "fixed";
-      star.style.left = `${x}px`;
-      star.style.top = `${y}px`;
-
-      star.style.setProperty(
-        "--x",
-        `${Math.random() * 100 - 50}px`
-      );
-
-      star.style.setProperty(
-        "--y",
-        `${Math.random() * 100 - 50}px`
-      );
-
-      sparkleContainer.appendChild(star);
-
-      setTimeout(() => {
-        star.remove();
-      }, 950);
+    if (card) {
+      event.preventDefault();
+      card.classList.toggle("flipped");
     }
-  }
+
+  });
 
 
-  /* =======================================================
-     PAGE SCROLL
-  ======================================================= */
+  // =========================
+  // WELCOME BUTTON
+  // =========================
+  const welcomeBtn = document.getElementById("welcomeBtn");
 
-  function goTo(id) {
-    const target = document.getElementById(id);
+  if (welcomeBtn) {
+    welcomeBtn.addEventListener("click", function () {
 
-    if (!target) return;
+      const about = document.getElementById("about");
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      if (about) {
+        about.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+
     });
   }
 
 
-  /* =======================================================
-     HERO — LOVE ORB
-  ======================================================= */
+  // =========================
+  // SEMUA DATA-SCROLL
+  // =========================
+  document.querySelectorAll("[data-scroll]").forEach(function (button) {
 
-  const loveOrb = $("#loveOrb");
+    button.addEventListener("click", function () {
 
-  if (loveOrb) {
+      const targetId = button.getAttribute("data-scroll");
+      const target = document.getElementById(targetId);
 
-    loveOrb.addEventListener("click", (event) => {
-
-      loveOrb.classList.remove("orb-active");
-
-      // force animation restart
-      void loveOrb.offsetWidth;
-
-      loveOrb.classList.add("orb-active");
-
-      sparkle(
-        event.clientX,
-        event.clientY,
-        10
-      );
-
-      showToast("welcome to my little world ♡");
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
 
     });
 
+  });
+
+
+  // =========================
+  // PHOTO REVEAL
+  // =========================
+  const photoCover = document.getElementById("photoCover");
+  const revealBtn = document.getElementById("revealBtn");
+
+  function togglePhoto() {
+
+    if (!photoCover) return;
+
+    photoCover.classList.toggle("revealed");
+
+    if (revealBtn) {
+
+      if (photoCover.classList.contains("revealed")) {
+        revealBtn.textContent = "tutup lagi ♡";
+      } else {
+        revealBtn.textContent = "buka potonganku ♡";
+      }
+
+    }
+
+  }
+
+  if (photoCover) {
+    photoCover.addEventListener("click", togglePhoto);
+  }
+
+  if (revealBtn) {
+    revealBtn.addEventListener("click", togglePhoto);
   }
 
 
-  /* =======================================================
-     HERO — GET TO KNOW ME
-  ======================================================= */
+  // =========================
+  // MUSIC
+  // =========================
+  const music = document.getElementById("music");
+  const musicButton = document.querySelector("[data-music]");
 
-  const goAbout = $("#goAbout");
+  if (music) {
 
-  if (goAbout) {
+    music.volume = 0.5;
 
-    goAbout.addEventListener("click", () => {
+    if (musicButton) {
 
-      goTo("about");
+      musicButton.addEventListener("click", function () {
 
-    });
+        if (music.paused) {
+          music.play().catch(() => {});
+          musicButton.textContent = "pause musik ♫";
+        } else {
+          music.pause();
+          musicButton.textContent = "lanjutkan dengan musik ♫";
+        }
+
+      });
+
+    }
 
   }
 
-
-  /* =======================================================
-     FALLING FLOWERS
-  ======================================================= */
-
-  const petalLayer = $("#petalLayer");
-
-  const flowerMessages = [
-    "have a good day ♡",
-    "you are doing great ✿",
-    "keep smiling ♡",
-    "you got this!",
-    "stay happy 🌸",
-    "a little flower for you ♡",
-    "don't forget to smile ✨",
-    "you deserve nice things ♡",
-    "everything will be okay",
-    "sending you a little love ♡"
-  ];
-
-
-  function createFlower() {
-
-    if (!petalLayer) return;
-
-    const flower = document.createElement("button");
-
-    flower.type = "button";
-    flower.className = "falling-flower";
-
-    flower.setAttribute(
-      "aria-label",
-      "click the flower"
-    );
-
-    const symbols = [
-      "✿",
-      "❀",
-      "✾",
-      "🌸",
-      "🌷",
-      "♡"
-    ];
-
-    flower.textContent =
-      symbols[
-        Math.floor(
-          Math.random() * symbols.length
-        )
-      ];
-
-    flower.style.left =
-      `${Math.random() * 100}%`;
-
-    flower.style.fontSize =
-      `${Math.random() * 13 + 15}px`;
-
-    flower.style.animationDuration =
-      `${Math.random() * 6 + 7}s`;
-
-    flower.style.animationDelay =
-      `${Math.random() * -6}s`;
-
-    flower.style.setProperty(
-      "--sway",
-      `${Math.random() * 80 - 40}px`
-    );
-
-    petalLayer.appendChild(flower);
-
-
-    /* CLICK FLOWER */
-
-    flower.addEventListener("click", (event) => {
-
-      const message =
-        flowerMessages[
-          Math.floor(
-            Math.random() *
-            flowerMessages.length
-          )
-        ];
-
-
-     
+});
