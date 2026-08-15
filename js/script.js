@@ -1,331 +1,224 @@
-/* =========================================================
+  /* =========================================================
    PIECES OF RANIA
-   SCRIPT.JS
-   FULL INTERACTIVE VERSION
+   SCRIPT.JS — FINAL
+   Cocok dengan index.html yang kamu kirim
 ========================================================= */
 
-"use strict";
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================================================
-   ELEMENT HELPERS
-========================================================= */
+  /* =======================================================
+     HELPER
+  ======================================================= */
 
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
-
-
-/* =========================================================
-   GLOBAL ELEMENTS
-========================================================= */
-
-const sparkles = $("#sparkles");
-const petalLayer = $("#petalLayer");
-
-const loveOrb = $("#loveOrb");
-const goAbout = $("#goAbout");
-
-const toMusic = $("#toMusic");
-const toGame = $("#toGame");
-
-const musicAudio = $("#musicAudio");
-const playButton = $("#playButton");
-const cassette = $("#cassette");
-const progressBar = $("#progressBar");
-const audioStatus = $("#audioStatus");
-
-const gameStage = $("#gameStage");
-const character = $("#character");
-const throwHeart = $("#throwHeart");
-const basket = $("#basket");
-
-const scoreElement = $("#score");
-const gameMessage = $("#gameMessage");
-
-const resetGame = $("#resetGame");
-const helpGame = $("#helpGame");
-
-const toast = $("#toast");
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => document.querySelectorAll(selector);
 
 
-/* =========================================================
-   GENERAL UTILITIES
-========================================================= */
+  /* =======================================================
+     TOAST
+  ======================================================= */
 
-function showToast(message, duration = 2200) {
+  const toast = $("#toast");
 
-  if (!toast) return;
+  let toastTimer;
 
-  toast.textContent = message;
-  toast.classList.add("show");
+  function showToast(message) {
+    if (!toast) return;
 
-  clearTimeout(showToast.timer);
+    toast.textContent = message;
+    toast.classList.add("show");
 
-  showToast.timer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, duration);
-}
+    clearTimeout(toastTimer);
 
-
-/* =========================================================
-   SCROLL TO SECTION
-========================================================= */
-
-function goToSection(id) {
-
-  const section = document.getElementById(id);
-
-  if (!section) return;
-
-  section.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
-
-
-/* =========================================================
-   SPARKLE EFFECT
-========================================================= */
-
-function createSparkles(x, y, amount = 8) {
-
-  if (!sparkles) return;
-
-  const symbols = ["✦", "✧", "♡", "⋆"];
-
-  for (let i = 0; i < amount; i++) {
-
-    const sparkle = document.createElement("span");
-
-    sparkle.className = "click-sparkle";
-
-    sparkle.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-
-    sparkle.style.position = "fixed";
-    sparkle.style.left = `${x}px`;
-    sparkle.style.top = `${y}px`;
-
-    sparkle.style.setProperty(
-      "--x",
-      `${(Math.random() - 0.5) * 100}px`
-    );
-
-    sparkle.style.setProperty(
-      "--y",
-      `${(Math.random() - 0.5) * 100}px`
-    );
-
-    sparkle.style.animationDelay =
-      `${Math.random() * 0.12}s`;
-
-    sparkles.appendChild(sparkle);
-
-    setTimeout(() => {
-      sparkle.remove();
-    }, 1000);
-  }
-}
-
-
-/* =========================================================
-   GLOBAL CLICK SPARKLES
-========================================================= */
-
-document.addEventListener("click", (event) => {
-
-  const target = event.target;
-
-  if (
-    target.closest("button") ||
-    target.closest("a") ||
-    target.closest(".falling-flower") ||
-    target.closest(".hand-heart")
-  ) {
-
-    createSparkles(
-      event.clientX,
-      event.clientY,
-      6
-    );
+    toastTimer = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2200);
   }
 
-});
+
+  /* =======================================================
+     SPARKLES
+  ======================================================= */
+
+  const sparkleContainer = $("#sparkles");
+
+  function sparkle(x, y, amount = 7) {
+    if (!sparkleContainer) return;
+
+    for (let i = 0; i < amount; i++) {
+
+      const star = document.createElement("span");
+
+      star.className = "click-sparkle";
+      star.textContent = Math.random() > 0.5 ? "✦" : "♡";
+
+      star.style.position = "fixed";
+      star.style.left = `${x}px`;
+      star.style.top = `${y}px`;
+
+      star.style.setProperty(
+        "--x",
+        `${Math.random() * 100 - 50}px`
+      );
+
+      star.style.setProperty(
+        "--y",
+        `${Math.random() * 100 - 50}px`
+      );
+
+      sparkleContainer.appendChild(star);
+
+      setTimeout(() => {
+        star.remove();
+      }, 950);
+    }
+  }
 
 
-/* =========================================================
-   HERO HEART
-========================================================= */
+  /* =======================================================
+     PAGE SCROLL
+  ======================================================= */
 
-if (loveOrb) {
+  function goTo(id) {
+    const target = document.getElementById(id);
 
-  loveOrb.addEventListener("click", (event) => {
+    if (!target) return;
 
-    loveOrb.classList.remove("orb-active");
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
 
-    void loveOrb.offsetWidth;
 
-    loveOrb.classList.add("orb-active");
+  /* =======================================================
+     HERO — LOVE ORB
+  ======================================================= */
 
-    createSparkles(
-      event.clientX,
-      event.clientY,
-      14
-    );
+  const loveOrb = $("#loveOrb");
 
-    showToast(
-      "welcome to my little world ♡"
-    );
+  if (loveOrb) {
 
-    setTimeout(() => {
+    loveOrb.addEventListener("click", (event) => {
+
       loveOrb.classList.remove("orb-active");
-    }, 800);
 
-  });
+      // force animation restart
+      void loveOrb.offsetWidth;
 
-}
+      loveOrb.classList.add("orb-active");
 
+      sparkle(
+        event.clientX,
+        event.clientY,
+        10
+      );
 
-/* =========================================================
-   GET TO KNOW ME
-========================================================= */
+      showToast("welcome to my little world ♡");
 
-if (goAbout) {
+    });
 
-  goAbout.addEventListener("click", () => {
-
-    goToSection("about");
-
-  });
-
-}
+  }
 
 
-/* =========================================================
-   FALLING FLOWERS
-========================================================= */
+  /* =======================================================
+     HERO — GET TO KNOW ME
+  ======================================================= */
 
-const flowerMessages = [
+  const goAbout = $("#goAbout");
 
-  "have a good day ♡",
-  "you are doing great ✦",
-  "smile today ♡",
-  "you've got this!",
-  "take a little breath 🌸",
-  "you deserve good things ♡",
-  "stay soft, stay strong",
-  "something beautiful is coming ✦",
-  "keep going ♡",
-  "don't forget to smile",
-  "you are enough ♡",
-  "sending you a little love 🌷"
+  if (goAbout) {
 
-];
+    goAbout.addEventListener("click", () => {
+
+      goTo("about");
+
+    });
+
+  }
 
 
-function createFlower() {
+  /* =======================================================
+     FALLING FLOWERS
+  ======================================================= */
 
-  if (!petalLayer) return;
+  const petalLayer = $("#petalLayer");
 
-  const flower = document.createElement("button");
-
-  flower.type = "button";
-
-  flower.className = "falling-flower";
-
-  flower.setAttribute(
-    "aria-label",
-    "click the flower"
-  );
-
-  flower.textContent =
-    Math.random() > 0.5 ? "✿" : "❀";
-
-
-  const size =
-    Math.floor(Math.random() * 18) + 18;
-
-  const left =
-    Math.random() * 96;
-
-  const duration =
-    Math.random() * 7 + 9;
-
-  const delay =
-    Math.random() * -12;
+  const flowerMessages = [
+    "have a good day ♡",
+    "you are doing great ✿",
+    "keep smiling ♡",
+    "you got this!",
+    "stay happy 🌸",
+    "a little flower for you ♡",
+    "don't forget to smile ✨",
+    "you deserve nice things ♡",
+    "everything will be okay",
+    "sending you a little love ♡"
+  ];
 
 
-  flower.style.left = `${left}%`;
+  function createFlower() {
 
-  flower.style.fontSize = `${size}px`;
+    if (!petalLayer) return;
 
-  flower.style.animationDuration =
-    `${duration}s`;
+    const flower = document.createElement("button");
 
-  flower.style.animationDelay =
-    `${delay}s`;
+    flower.type = "button";
+    flower.className = "falling-flower";
 
+    flower.setAttribute(
+      "aria-label",
+      "click the flower"
+    );
 
-  flower.dataset.message =
-    flowerMessages[
-      Math.floor(
-        Math.random() * flowerMessages.length
-      )
+    const symbols = [
+      "✿",
+      "❀",
+      "✾",
+      "🌸",
+      "🌷",
+      "♡"
     ];
 
+    flower.textContent =
+      symbols[
+        Math.floor(
+          Math.random() * symbols.length
+        )
+      ];
 
-  flower.addEventListener("click", (event) => {
+    flower.style.left =
+      `${Math.random() * 100}%`;
 
-    event.stopPropagation();
+    flower.style.fontSize =
+      `${Math.random() * 13 + 15}px`;
 
-    createFlowerBubble(
-      event.clientX,
-      event.clientY,
-      flower.dataset.message
+    flower.style.animationDuration =
+      `${Math.random() * 6 + 7}s`;
+
+    flower.style.animationDelay =
+      `${Math.random() * -6}s`;
+
+    flower.style.setProperty(
+      "--sway",
+      `${Math.random() * 80 - 40}px`
     );
 
-    createSparkles(
-      event.clientX,
-      event.clientY,
-      12
-    );
-
-    flower.classList.add("flower-clicked");
-
-    setTimeout(() => {
-
-      flower.remove();
-
-      createFlower();
-
-    }, 350);
-
-  });
+    petalLayer.appendChild(flower);
 
 
-  petalLayer.appendChild(flower);
+    /* CLICK FLOWER */
 
-}
+    flower.addEventListener("click", (event) => {
 
-
-/* Create enough flowers */
-
-if (petalLayer) {
-
-  for (let i = 0; i < 18; i++) {
-    createFlower();
-  }
-
-}
+      const message =
+        flowerMessages[
+          Math.floor(
+            Math.random() *
+            flowerMessages.length
+          )
+        ];
 
 
-/* =========================================================
-   FLOWER BUBBLE
-========================================================= */
-
-function createFlowerBubble(x, y, message) {
-
-  const bubble =
-    document.createElement("div");
-
-  bubble
+     
