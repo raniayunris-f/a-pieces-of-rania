@@ -127,14 +127,133 @@ button{font:inherit;cursor:pointer}.hero{min-height:100vh;display:grid;place-ite
 <footer><p>Made with ♡ by Rania</p><button id="topBtn">↑</button></footer>
 <div class="toast" id="toast"></div>
 <script>
-document.addEventListener("DOMContentLoaded",()=>{const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
-$$(".flip-card").forEach(c=>c.addEventListener("click",()=>c.classList.toggle("flipped")));
-$$("[data-scroll]").forEach(b=>b.addEventListener("click",()=>document.getElementById(b.dataset.scroll)?.scrollIntoView({behavior:"smooth"})));
-function toast(m){const x=$("#toast");x.textContent=m;x.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove("show"),2400)}
-$("#welcomeBtn").addEventListener("click",()=>{toast("haiii, selamat datang di dunia kecil Rania ♡");$("#about").scrollIntoView({behavior:"smooth"})});
-const photo=$("#photoBox");const reveal=()=>{photo.classList.add("open");toast("potongan Rania terbuka ♡")};$("#photoCover").addEventListener("click",reveal);$("#revealBtn").addEventListener("click",reveal);
-$("#helloAssignment").addEventListener("click",()=>toast("semoga semua tugas Rania lancar! 📚♡"));$("#topBtn").addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+document.addEventListener("DOMContentLoaded", () => {
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
 
+  // FLIP CARD
+  $$(".flip-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+    });
+  });
+
+  // SCROLL
+  $$("[data-scroll]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = document.getElementById(button.dataset.scroll);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+
+  // TOAST
+  function toast(message) {
+    const box = $("#toast");
+
+    if (!box) return;
+
+    box.textContent = message;
+    box.classList.add("show");
+
+    clearTimeout(window.tt);
+
+    window.tt = setTimeout(() => {
+      box.classList.remove("show");
+    }, 2400);
+  }
+
+  // WELCOME
+  const welcomeBtn = $("#welcomeBtn");
+
+  if (welcomeBtn) {
+    welcomeBtn.addEventListener("click", () => {
+      toast("haiii, selamat datang di dunia kecil Rania ♡");
+
+      const about = $("#about");
+
+      if (about) {
+        about.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  }
+
+  // FOTO
+  const photo = $("#photoBox");
+
+  function revealPhoto() {
+    if (!photo) return;
+
+    photo.classList.toggle("open");
+
+    if (photo.classList.contains("open")) {
+      toast("potongan Rania terbuka ♡");
+    }
+  }
+
+  $("#photoCover")?.addEventListener("click", revealPhoto);
+  $("#revealBtn")?.addEventListener("click", revealPhoto);
+
+  // TUGAS
+  $("#helloAssignment")?.addEventListener("click", () => {
+    toast("semoga semua tugas Rania lancar! 📚♡");
+  });
+
+  // TOP BUTTON
+  $("#topBtn")?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  // =========================
+  // MUSIK
+  // =========================
+
+  const musicBtn = $("#musicBtn");
+  const musicAudio = $("#musikAudio");
+  const musicStatus = $("#musicStatus");
+
+  if (musicBtn && musicAudio) {
+    musicBtn.addEventListener("click", async () => {
+
+      if (musicAudio.paused) {
+        try {
+          await musicAudio.play();
+
+          musicBtn.textContent = "❚❚ Pause";
+
+          if (musicStatus) {
+            musicStatus.textContent =
+              "♪ Piano Man — Billy Joel sedang diputar";
+          }
+
+        } catch (error) {
+          console.error(error);
+          toast("Musiknya belum bisa diputar 😭");
+        }
+
+      } else {
+        musicAudio.pause();
+
+        musicBtn.textContent = "▶ Play";
+
+        if (musicStatus) {
+          musicStatus.textContent =
+            "Piano Man — Billy Joel";
+        }
+      }
+    });
+  }
+
+});
 let ctx=null,gain=null,timer=null,playing=false,step=0;const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
 function note(){if(!ctx||!playing)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=notes[step++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.055,ctx.currentTime+.06);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.1);o.connect(g).connect(gain);o.start();o.stop(ctx.currentTime+1.15)}
 $("#musicBtn").addEventListener("click",async()=>{if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();gain=ctx.createGain();gain.gain.value=.35;gain.connect(ctx.destination)}if(ctx.state==="suspended")await ctx.resume();playing=!playing;const b=$("#musicBtn"),v=$("#vinyl"),s=$("#musicStatus");if(playing){note();timer=setInterval(note,900);b.textContent="❚❚ Pause";s.textContent="musik tenang sedang dimainkan ♡";v.classList.add("playing")}else{clearInterval(timer);b.textContent="▶ Play";s.textContent="musik dijeda — tekan play untuk lanjut ♡";v.classList.remove("playing")}});
